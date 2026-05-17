@@ -17,6 +17,7 @@
   --color-pure-white: #FFFFFF; /* Hero background */
   --color-wine:     #7A2035; /* Bordeaux — CTA buttons (approved last-minute) */
   --color-whatsapp: #25D366; /* WhatsApp green */
+  --color-bg:       #F9F7F6; /* Off-white page background */
 
   /* Typography */
   --font-serif:      'Cormorant Garamond', Georgia, serif;
@@ -124,70 +125,37 @@ button {
   z-index: 1000;
   height: var(--navbar-height);
   background-color: var(--color-white);
-  border-bottom: var(--border-taupe);
+  box-shadow: 0 2px 16px rgba(57, 55, 59, 0.06);
   display: flex;
   align-items: center;
   padding: 0 var(--space-lg);
-  transition: height var(--transition-base), box-shadow var(--transition-base);
+  transition:
+    height var(--transition-base),
+    background-color var(--transition-slow),
+    box-shadow var(--transition-base);
 }
 
-/* Shrink navbar on scroll */
+/* Shrink + frosted glass on scroll */
 .navbar.scrolled {
   height: var(--navbar-height-scrolled);
-  box-shadow: var(--shadow-sm);
+  background-color: rgba(238, 229, 211, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 2px 20px rgba(57, 55, 59, 0.10);
 }
 
 /* ---- Logo ---- */
 .navbar__logo {
   display: flex;
   align-items: center;
-  gap: var(--space-sm);
   flex-shrink: 0;
   text-decoration: none;
 }
 
-.navbar__logo-icon {
-  width: 36px;
-  height: 36px;
-  flex-shrink: 0;
-  color: var(--color-taupe);
-  transition: color var(--transition-fast);
-}
-
-.navbar__logo:hover .navbar__logo-icon {
-  color: var(--color-dark);
-}
-
-.navbar__logo-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.1;
-}
-
-.navbar__logo-name {
-  font-family: var(--font-sans);
-  font-weight: 700;
-  font-size: 0.9rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--color-dark);
-  white-space: nowrap;
-}
-
-.navbar__logo-name span {
-  /* The slash separator */
-  color: var(--color-taupe);
-  font-weight: 400;
-  margin: 0 0.15em;
-}
-
-.navbar__logo-title {
-  font-family: var(--font-sans);
-  font-weight: 400;
-  font-size: 0.6rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--color-gray);
+.navbar__logo-img {
+  height: 48px;
+  width: auto;
+  display: block;
 }
 
 /* ---- Nav links (desktop) ---- */
@@ -404,29 +372,40 @@ button {
 .hero {
   min-height: calc(100vh - var(--navbar-height));
   margin-top: var(--navbar-height);
-  background-color: var(--color-pure-white);
+  background-image: url('../images/tania-ferreira.jpg');
+  background-size: cover;
+  background-position: right center;
+  background-repeat: no-repeat;
   display: flex;
   align-items: center;
   position: relative;
   overflow: hidden;
 }
 
-.hero__container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: var(--space-3xl) var(--space-lg);
-  gap: var(--space-2xl);
+/* Gradient overlay — makes left side readable */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(238, 229, 211, 0.92) 0%,
+    rgba(238, 229, 211, 0.72) 50%,
+    rgba(238, 229, 211, 0.10) 100%
+  );
+  z-index: 0;
 }
 
 /* ---- Quote block ---- */
 .hero__content {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: var(--space-xl);
   max-width: 520px;
+  padding: var(--space-3xl) var(--space-lg);
 }
 
 .hero__quote {
@@ -514,34 +493,6 @@ button {
 
 .hero__cta:active {
   transform: translateY(0);
-}
-
-/* ---- Photo placeholder ---- */
-.hero__photo {
-  width: 100%;
-  max-width: 400px;
-  height: 420px;
-  background-color: var(--color-white);
-  border-radius: 4px;
-  position: relative;
-  overflow: hidden;
-  align-self: center;
-  flex-shrink: 0;
-  /* Subtle inner border */
-  box-shadow: inset 0 0 0 1px var(--color-taupe);
-}
-
-.hero__photo::before {
-  content: 'Foto';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: var(--font-sans);
-  font-size: 0.65rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--color-taupe);
 }
 
 /* ---- Scroll indicator ---- */
@@ -692,24 +643,9 @@ button {
     display: none;
   }
 
-  /* Hero becomes two-column */
-  .hero__container {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: var(--space-3xl) var(--space-2xl);
-    gap: var(--space-2xl);
-  }
-
   .hero__content {
-    flex: 0 0 auto;
+    padding: var(--space-3xl) var(--space-2xl);
     max-width: 50%;
-  }
-
-  .hero__photo {
-    flex: 0 0 auto;
-    max-width: 380px;
-    height: 480px;
   }
 }
 
@@ -729,24 +665,14 @@ button {
     gap: var(--space-lg);
   }
 
-  .hero__container {
-    padding: 0 10%;
-    min-height: calc(100vh - var(--navbar-height));
-    align-items: center;
-  }
-
   .hero__content {
-    max-width: 46%;
+    padding: var(--space-3xl) 10%;
+    max-width: 54%;
   }
 
   .hero__quote-line1,
   .hero__quote-line2 {
     font-size: clamp(2.4rem, 3.5vw, 3.6rem);
-  }
-
-  .hero__photo {
-    max-width: 420px;
-    height: 540px;
   }
 }
 
@@ -754,13 +680,9 @@ button {
    11. RESPONSIVE — WIDE (min-width: 1280px)
    ------------------------------------------------------------ */
 @media (min-width: 1280px) {
-  .hero__container {
-    padding: 0 12%;
-  }
-
-  .hero__photo {
-    max-width: 460px;
-    height: 580px;
+  .hero__content {
+    padding: var(--space-3xl) 12%;
+    max-width: 50%;
   }
 }
 
@@ -771,7 +693,7 @@ button {
 /* SECTION SHARED */
 .section {
   padding: var(--space-3xl) 0;
-  background-color: var(--color-pure-white);
+  background-color: var(--color-bg);
 }
 
 .section__header {
@@ -849,29 +771,35 @@ button {
   text-align: justify;
 }
 
-/* Splide custom arrows */
+/* Splide custom arrows — override full splide.min.css defaults */
 .carousel .splide__arrow {
   background: none;
+  border: none;
   box-shadow: none;
-  width: 2rem;
-  height: 2rem;
+  width: 2.4rem;
+  height: 2.4rem;
   opacity: 1;
+  top: 38%;
 }
 
 .carousel .splide__arrow svg {
   width: 1.2rem;
   height: 1.2rem;
   fill: none;
-  stroke: var(--color-dark);
+  stroke: var(--color-taupe);
   stroke-width: 2;
 }
 
-.carousel .splide__arrow:hover svg {
-  stroke: var(--color-taupe);
+.carousel .splide__arrow:hover {
+  background: none;
 }
 
-.carousel .splide__arrow--prev { left: 0.5rem; }
-.carousel .splide__arrow--next { right: 0.5rem; }
+.carousel .splide__arrow:hover svg {
+  stroke: var(--color-dark);
+}
+
+.carousel .splide__arrow--prev { left: 0.25rem; }
+.carousel .splide__arrow--next { right: 0.25rem; }
 
 /* Section CTA button */
 .section__cta {
@@ -920,9 +848,25 @@ button {
   justify-content: center;
   min-height: 500px;
   padding: var(--space-3xl) var(--space-lg);
-  background-color: #FAF7F2;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cellipse cx='30' cy='60' rx='8' ry='20' fill='none' stroke='%23D4C9BB' stroke-width='1' transform='rotate(-20 30 60)'/%3E%3Cellipse cx='170' cy='140' rx='8' ry='20' fill='none' stroke='%23D4C9BB' stroke-width='1' transform='rotate(20 170 140)'/%3E%3Cellipse cx='100' cy='20' rx='6' ry='16' fill='none' stroke='%23D4C9BB' stroke-width='1' transform='rotate(-10 100 20)'/%3E%3Ccircle cx='150' cy='60' r='12' fill='none' stroke='%23D4C9BB' stroke-width='1'/%3E%3Cellipse cx='50' cy='160' rx='10' ry='6' fill='none' stroke='%23D4C9BB' stroke-width='1' transform='rotate(45 50 160)'/%3E%3C/svg%3E");
-  background-size: 200px 200px;
+  background-color: #F5F0E8;
+  position: relative;
+  overflow: hidden;
+}
+
+.quote-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('../images/flower_patter_backgroung.svg');
+  background-size: 600px auto;
+  background-repeat: repeat;
+  opacity: 0.06;
+  z-index: 0;
+}
+
+.quote-section > * {
+  position: relative;
+  z-index: 1;
 }
 
 .quote-section__card {
@@ -1083,9 +1027,25 @@ button {
    15. CONTATOS SECTION
    ------------------------------------------------------------ */
 .contatos-section {
-  background-color: #FAF7F2;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cellipse cx='30' cy='60' rx='8' ry='20' fill='none' stroke='%23D4C9BB' stroke-width='1' transform='rotate(-20 30 60)'/%3E%3Cellipse cx='170' cy='140' rx='8' ry='20' fill='none' stroke='%23D4C9BB' stroke-width='1' transform='rotate(20 170 140)'/%3E%3Cellipse cx='100' cy='20' rx='6' ry='16' fill='none' stroke='%23D4C9BB' stroke-width='1' transform='rotate(-10 100 20)'/%3E%3Ccircle cx='150' cy='60' r='12' fill='none' stroke='%23D4C9BB' stroke-width='1'/%3E%3Cellipse cx='50' cy='160' rx='10' ry='6' fill='none' stroke='%23D4C9BB' stroke-width='1' transform='rotate(45 50 160)'/%3E%3C/svg%3E");
-  background-size: 200px 200px;
+  background-color: #F5F0E8;
+  position: relative;
+  overflow: hidden;
+}
+
+.contatos-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('../images/flower_patter_backgroung.svg');
+  background-size: 600px auto;
+  background-repeat: repeat;
+  opacity: 0.06;
+  z-index: 0;
+}
+
+.contatos-section > * {
+  position: relative;
+  z-index: 1;
 }
 
 .contatos__grid {

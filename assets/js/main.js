@@ -18,6 +18,7 @@
      ELEMENT REFS
      ---------------------------------------------------------- */
   const navbar        = document.getElementById('navbar');
+  const logoImg       = document.getElementById('navbar-logo-img');
   const hamburgerBtn  = document.getElementById('hamburger-btn');
   const mobileNav     = document.getElementById('mobile-nav');
 
@@ -138,6 +139,11 @@
 
     // Update the <html lang> attribute for accessibility / SEO
     document.documentElement.lang = isFR ? 'fr' : 'pt';
+
+    // Swap logo SVG for the language version
+    if (logoImg) {
+      logoImg.src = 'assets/images/Logo_Tania_' + (isFR ? 'FR' : 'PT') + '.svg';
+    }
 
     // Persist
     try {

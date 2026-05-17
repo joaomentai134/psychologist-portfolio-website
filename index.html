@@ -26,7 +26,7 @@
         rel="stylesheet" />
 
   <!-- Splide CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide-core.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" />
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="assets/css/style.css" />
@@ -42,32 +42,12 @@
 
       <!-- Logo -->
       <a href="#inicio" class="navbar__logo" aria-label="Tânia Ferreira Psicóloga — Página inicial">
-
-        <!-- Two intertwined loops SVG icon -->
-        <svg class="navbar__logo-icon"
-             viewBox="0 0 36 36"
-             fill="none"
-             xmlns="http://www.w3.org/2000/svg"
-             aria-hidden="true"
-             focusable="false">
-          <ellipse cx="13" cy="18" rx="9" ry="9"
-                   stroke="currentColor" stroke-width="1.4" fill="none" />
-          <ellipse cx="23" cy="18" rx="9" ry="9"
-                   stroke="currentColor" stroke-width="1.4" fill="none"
-                   opacity="0.65" />
-          <!-- Intersection highlight -->
-          <path d="M18 10.5 C20.5 13 20.5 23 18 25.5 C15.5 23 15.5 13 18 10.5 Z"
-                fill="currentColor" opacity="0.18" />
-        </svg>
-
-        <span class="navbar__logo-text">
-          <span class="navbar__logo-name">
-            TÂNIA<span>/</span>FERREIRA
-          </span>
-          <span class="navbar__logo-title"
-                data-pt="PSICÓLOGA"
-                data-fr="PSYCHOLOGUE">PSICÓLOGA</span>
-        </span>
+        <img src="assets/images/Logo_Tania_PT.svg"
+             id="navbar-logo-img"
+             class="navbar__logo-img"
+             alt="Tânia Ferreira Psicóloga"
+             height="48"
+             width="auto" />
       </a>
 
       <!-- Desktop navigation -->
@@ -209,42 +189,29 @@
          ============================================================ -->
     <section class="hero" id="inicio" aria-label="Introdução">
 
-      <div class="hero__container">
+      <div class="hero__content">
 
-        <!-- Left: Quote + CTA -->
-        <div class="hero__content">
+        <blockquote class="hero__quote">
+          <span class="hero__quote-open" aria-hidden="true">&ldquo;</span>
+          <span class="hero__quote-line1"
+                data-pt="If you can dream it."
+                data-fr="Si vous pouvez le rêver.">If you can dream it.</span>
+          <span class="hero__quote-line2"
+                data-pt="You can do it"
+                data-fr="Vous pouvez le faire">You can do it<span class="hero__quote-close" aria-hidden="true">&rdquo;</span></span>
+        </blockquote>
 
-          <blockquote class="hero__quote">
-            <span class="hero__quote-open" aria-hidden="true">&ldquo;</span>
-            <span class="hero__quote-line1"
-                  data-pt="If you can dream it."
-                  data-fr="Si vous pouvez le rêver.">If you can dream it.</span>
-            <span class="hero__quote-line2"
-                  data-pt="You can do it"
-                  data-fr="Vous pouvez le faire">You can do it<span class="hero__quote-close" aria-hidden="true">&rdquo;</span></span>
-          </blockquote>
+        <p class="hero__quote-author"
+           data-pt="— Walt Disney"
+           data-fr="— Walt Disney">— Walt Disney</p>
 
-          <p class="hero__quote-author"
-             data-pt="— Walt Disney"
-             data-fr="— Walt Disney">— Walt Disney</p>
+        <a href="#contatos"
+           class="hero__cta"
+           data-pt="MARCAR CONSULTA"
+           data-fr="PRENDRE RENDEZ-VOUS"
+           aria-label="Marcar consulta — ir para a secção de contacto">MARCAR CONSULTA</a>
 
-          <a href="#contatos"
-             class="hero__cta"
-             data-pt="MARCAR CONSULTA"
-             data-fr="PRENDRE RENDEZ-VOUS"
-             aria-label="Marcar consulta — ir para a secção de contacto">MARCAR CONSULTA</a>
-
-        </div><!-- /.hero__content -->
-
-        <!-- Right: Photo placeholder -->
-        <div class="hero__photo" role="img" aria-label="Fotografia de Tânia Ferreira — a ser adicionada">
-          <!-- Replace this div with an <img> tag when the photo is provided:
-               <img src="assets/images/tania-ferreira.jpg"
-                    alt="Dra. Tânia Ferreira, Psicóloga Clínica"
-                    width="460" height="580" loading="eager" /> -->
-        </div>
-
-      </div><!-- /.hero__container -->
+      </div><!-- /.hero__content -->
 
       <!-- Scroll indicator -->
       <div class="hero__scroll-indicator" aria-hidden="true">
@@ -262,6 +229,61 @@
       </div>
 
     </section><!-- /#inicio -->
+
+
+    <!-- ============================================================
+         QUOTE TRANSITION SECTION
+         ============================================================ -->
+    <section id="quote-transition" class="quote-section" aria-label="Citação">
+      <div class="quote-section__card">
+        <span class="quote-section__open" aria-hidden="true">&ldquo;</span>
+        <blockquote class="quote-section__text"
+                    data-pt="A PSICOLOGIA NÃO É SÓ ESCUTAR, É TRANSFORMAR."
+                    data-fr="LA PSYCHOLOGIE N'EST PAS SEULEMENT ÉCOUTER, C'EST TRANSFORMER.">
+          A PSICOLOGIA NÃO É SÓ ESCUTAR, É TRANSFORMAR.
+        </blockquote>
+        <hr class="quote-section__line" aria-hidden="true" />
+        <cite class="quote-section__author"
+              data-pt="Dra. Tânia Ferreira"
+              data-fr="Dra. Tânia Ferreira">Dra. Tânia Ferreira</cite>
+      </div>
+    </section><!-- /#quote-transition -->
+
+
+    <!-- ============================================================
+         SOBRE MIM SECTION
+         ============================================================ -->
+    <section id="sobre" class="section sobre-section" aria-label="Sobre mim">
+      <div class="section__header">
+        <h2 class="section__title" data-pt="SOBRE MIM" data-fr="À PROPOS">SOBRE MIM</h2>
+        <span class="section__divider" aria-hidden="true"></span>
+      </div>
+      <div class="sobre__content">
+        <div class="sobre__historia">
+          <h3 class="sobre__label" data-pt="HISTÓRIA" data-fr="HISTOIRE">HISTÓRIA</h3>
+          <p class="sobre__text"
+             data-pt="Sou psicóloga portuguesa e divido o meu tempo entre Portugal e Luxemburgo. Trabalho com crianças, adolescentes e adultos, em consulta presencial ou online, em Português, Francês, Inglês e Espanhol. O que me move é criar um espaço onde as pessoas se sintam à vontade para falar, sem pressão e sem julgamento."
+             data-fr="Je suis psychologue portugaise et je partage mon temps entre le Portugal et le Luxembourg. Je travaille avec des enfants, des adolescents et des adultes, en consultation présentielle ou en ligne, en Portugais, Français, Anglais et Espagnol. Ce qui me motive, c'est créer un espace où les personnes se sentent à l'aise pour parler, sans pression et sans jugement.">Sou psicóloga portuguesa e divido o meu tempo entre Portugal e Luxemburgo. Trabalho com crianças, adolescentes e adultos, em consulta presencial ou online, em Português, Francês, Inglês e Espanhol. O que me move é criar um espaço onde as pessoas se sintam à vontade para falar, sem pressão e sem julgamento.</p>
+        </div>
+        <div class="sobre__cols">
+          <div class="sobre__col">
+            <h3 class="sobre__label" data-pt="EDUCAÇÃO" data-fr="FORMATION">EDUCAÇÃO</h3>
+            <p class="sobre__text"
+               data-pt="Tenho mestrado em Psicologia pelo Instituto Universitário de Lisboa e a minha prática clínica é baseada na Terapia Cognitivo-Comportamental (TCC). A TCC trabalha a relação entre pensamentos, emoções e comportamentos, e é uma das abordagens com maior evidência científica na área da saúde mental. O meu objetivo não é dar respostas prontas. É ajudar cada pessoa a perceber o que se passa dentro de si e a encontrar o seu próprio caminho para o equilíbrio."
+               data-fr="J'ai un master en Psychologie de l'Institut Universitaire de Lisbonne et ma pratique clinique est basée sur la Thérapie Cognitivo-Comportementale (TCC). La TCC travaille la relation entre pensées, émotions et comportements, et c'est l'une des approches avec le plus de preuves scientifiques dans le domaine de la santé mentale. Mon objectif n'est pas de donner des réponses toutes faites. C'est d'aider chaque personne à comprendre ce qui se passe en elle et à trouver son propre chemin vers l'équilibre.">Tenho mestrado em Psicologia pelo Instituto Universitário de Lisboa e a minha prática clínica é baseada na Terapia Cognitivo-Comportamental (TCC). A TCC trabalha a relação entre pensamentos, emoções e comportamentos, e é uma das abordagens com maior evidência científica na área da saúde mental. O meu objetivo não é dar respostas prontas. É ajudar cada pessoa a perceber o que se passa dentro de si e a encontrar o seu próprio caminho para o equilíbrio.</p>
+          </div>
+          <div class="sobre__col">
+            <h3 class="sobre__label" data-pt="EXPERIÊNCIA" data-fr="EXPÉRIENCE">EXPERIÊNCIA</h3>
+            <p class="sobre__text"
+               data-pt="Ao longo dos anos trabalhei com ansiedade, depressão, burnout, autoestima, dependência emocional, luto, fobias, TDAH, dificuldades relacionais e familiares, e pessoas em fases de mudança ou sobrecarga emocional. Tenho também experiência na área organizacional: carreira, propósito, tomada de decisão e equilíbrio entre vida pessoal e profissional. Uma parte significativa do meu trabalho acompanha emigrantes e expatriados que lidam com a distância, a adaptação e a pressão de viver longe de casa."
+               data-fr="Au fil des années, j'ai travaillé avec l'anxiété, la dépression, le burnout, l'estime de soi, la dépendance émotionnelle, le deuil, les phobies, le TDAH, les difficultés relationnelles et familiales, et des personnes en phases de changement ou de surcharge émotionnelle. J'ai également de l'expérience dans le domaine organisationnel : carrière, objectifs, prise de décision et équilibre entre vie personnelle et professionnelle. Une part significative de mon travail accompagne des émigrés et des expatriés qui font face à la distance, l'adaptation et la pression de vivre loin de chez eux.">Ao longo dos anos trabalhei com ansiedade, depressão, burnout, autoestima, dependência emocional, luto, fobias, TDAH, dificuldades relacionais e familiares, e pessoas em fases de mudança ou sobrecarga emocional. Tenho também experiência na área organizacional: carreira, propósito, tomada de decisão e equilíbrio entre vida pessoal e profissional. Uma parte significativa do meu trabalho acompanha emigrantes e expatriados que lidam com a distância, a adaptação e a pressão de viver longe de casa.</p>
+          </div>
+        </div>
+      </div>
+      <div class="section__cta">
+        <a href="about.html" class="section-btn" data-pt="SABER MAIS" data-fr="EN SAVOIR PLUS">SABER MAIS</a>
+      </div>
+    </section><!-- /#sobre -->
 
     <!-- ============================================================
          SERVIÇOS SECTION
@@ -336,6 +358,60 @@
         <a href="#contatos" class="section-btn" data-pt="ESCOLHER SERVIÇO" data-fr="CHOISIR UN SERVICE">ESCOLHER SERVIÇO</a>
       </div>
     </section><!-- /#servicos -->
+
+    <!-- ============================================================
+         FEEDBACK SECTION
+         ============================================================ -->
+    <section id="feedback" class="section feedback-section" aria-label="Testemunhos">
+      <div class="section__header">
+        <h2 class="section__title" data-pt="FEEDBACK" data-fr="AVIS">FEEDBACK</h2>
+        <span class="section__divider" aria-hidden="true"></span>
+      </div>
+
+      <div id="feedback-carousel" class="splide carousel">
+        <div class="splide__track">
+          <ul class="splide__list">
+
+            <!-- Elsa Aguiar — EN -->
+            <li class="splide__slide">
+              <div class="feedback-card">
+                <p class="feedback-card__quote">"Leaving a consultation with Dr. Tânia is not just about feeling better — it's about feeling lighter, stronger, and more understood. Her presence is calming, and her listening is transformative. I wholeheartedly recommend her."</p>
+                <p class="feedback-card__author">Elsa Aguiar (EN)</p>
+              </div>
+            </li>
+
+            <!-- Anónimo — FR -->
+            <li class="splide__slide">
+              <div class="feedback-card">
+                <p class="feedback-card__quote">"Dr. Tânia, c'est une professionnelle toujours à l'écoute, attentive aux besoins du patient et très engagée dans le suivi. Elle fait preuve d'empathie, de clarté dans ses explications et d'un véritable engagement envers le bien-être de ceux qu'elle accompagne. Son attitude humaine et professionnelle inspire confiance et sérénité, rendant tout le processus plus simple et efficace."</p>
+                <p class="feedback-card__author">Anónimo (FR)</p>
+              </div>
+            </li>
+
+            <!-- Carla — PT -->
+            <li class="splide__slide">
+              <div class="feedback-card">
+                <p class="feedback-card__quote">"A profissional demonstra uma escuta atenta e acolhedora, compreende profundamente as questões apresentadas e oferece exemplos concretos que facilitam a reflexão. A sua abordagem é clara, prática e orientada para ajudar de forma efetiva, transmitindo segurança e apoio durante todo o processo terapêutico."</p>
+                <p class="feedback-card__author">Carla (PT)</p>
+              </div>
+            </li>
+
+            <!-- Vanny Gonçalves — PT -->
+            <li class="splide__slide">
+              <div class="feedback-card">
+                <p class="feedback-card__quote">"Encontrei aqui uma amiga, que me ouve, que me ajuda a esclarecer o que não consigo perceber, e a transformar-me na minha melhor versão. Obrigada, Tânia."</p>
+                <p class="feedback-card__author">Vanny Gonçalves (PT)</p>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+
+      <div class="section__cta">
+        <a href="contact.html" class="section-btn" data-pt="MARCAR CONSULTA" data-fr="PRENDRE RENDEZ-VOUS">MARCAR CONSULTA</a>
+      </div>
+    </section><!-- /#feedback -->
 
     <!-- ============================================================
          ESPECIALIDADES SECTION
@@ -603,113 +679,6 @@
     </section><!-- /#especialidades -->
 
     <!-- ============================================================
-         QUOTE TRANSITION SECTION
-         ============================================================ -->
-    <section id="quote-transition" class="quote-section" aria-label="Citação">
-      <div class="quote-section__card">
-        <span class="quote-section__open" aria-hidden="true">&ldquo;</span>
-        <blockquote class="quote-section__text"
-                    data-pt="A PSICOLOGIA NÃO É SÓ ESCUTAR, É TRANSFORMAR."
-                    data-fr="LA PSYCHOLOGIE N'EST PAS SEULEMENT ÉCOUTER, C'EST TRANSFORMER.">
-          A PSICOLOGIA NÃO É SÓ ESCUTAR, É TRANSFORMAR.
-        </blockquote>
-        <hr class="quote-section__line" aria-hidden="true" />
-        <cite class="quote-section__author"
-              data-pt="Dra. Tânia Ferreira"
-              data-fr="Dra. Tânia Ferreira">Dra. Tânia Ferreira</cite>
-      </div>
-    </section><!-- /#quote-transition -->
-
-    <!-- ============================================================
-         FEEDBACK SECTION
-         ============================================================ -->
-    <section id="feedback" class="section feedback-section" aria-label="Testemunhos">
-      <div class="section__header">
-        <h2 class="section__title" data-pt="FEEDBACK" data-fr="AVIS">FEEDBACK</h2>
-        <span class="section__divider" aria-hidden="true"></span>
-      </div>
-
-      <div id="feedback-carousel" class="splide carousel">
-        <div class="splide__track">
-          <ul class="splide__list">
-
-            <!-- Elsa Aguiar — EN -->
-            <li class="splide__slide">
-              <div class="feedback-card">
-                <p class="feedback-card__quote">"Leaving a consultation with Dr. Tânia is not just about feeling better — it's about feeling lighter, stronger, and more understood. Her presence is calming, and her listening is transformative. I wholeheartedly recommend her."</p>
-                <p class="feedback-card__author">Elsa Aguiar (EN)</p>
-              </div>
-            </li>
-
-            <!-- Anónimo — FR -->
-            <li class="splide__slide">
-              <div class="feedback-card">
-                <p class="feedback-card__quote">"Dr. Tânia, c'est une professionnelle toujours à l'écoute, attentive aux besoins du patient et très engagée dans le suivi. Elle fait preuve d'empathie, de clarté dans ses explications et d'un véritable engagement envers le bien-être de ceux qu'elle accompagne. Son attitude humaine et professionnelle inspire confiance et sérénité, rendant tout le processus plus simple et efficace."</p>
-                <p class="feedback-card__author">Anónimo (FR)</p>
-              </div>
-            </li>
-
-            <!-- Carla — PT -->
-            <li class="splide__slide">
-              <div class="feedback-card">
-                <p class="feedback-card__quote">"A profissional demonstra uma escuta atenta e acolhedora, compreende profundamente as questões apresentadas e oferece exemplos concretos que facilitam a reflexão. A sua abordagem é clara, prática e orientada para ajudar de forma efetiva, transmitindo segurança e apoio durante todo o processo terapêutico."</p>
-                <p class="feedback-card__author">Carla (PT)</p>
-              </div>
-            </li>
-
-            <!-- Vanny Gonçalves — PT -->
-            <li class="splide__slide">
-              <div class="feedback-card">
-                <p class="feedback-card__quote">"Encontrei aqui uma amiga, que me ouve, que me ajuda a esclarecer o que não consigo perceber, e a transformar-me na minha melhor versão. Obrigada, Tânia."</p>
-                <p class="feedback-card__author">Vanny Gonçalves (PT)</p>
-              </div>
-            </li>
-
-          </ul>
-        </div>
-      </div>
-
-      <div class="section__cta">
-        <a href="contact.html" class="section-btn" data-pt="MARCAR CONSULTA" data-fr="PRENDRE RENDEZ-VOUS">MARCAR CONSULTA</a>
-      </div>
-    </section><!-- /#feedback -->
-
-    <!-- ============================================================
-         SOBRE MIM SECTION
-         ============================================================ -->
-    <section id="sobre" class="section sobre-section" aria-label="Sobre mim">
-      <div class="section__header">
-        <h2 class="section__title" data-pt="SOBRE MIM" data-fr="À PROPOS">SOBRE MIM</h2>
-        <span class="section__divider" aria-hidden="true"></span>
-      </div>
-      <div class="sobre__content">
-        <div class="sobre__historia">
-          <h3 class="sobre__label" data-pt="HISTÓRIA" data-fr="HISTOIRE">HISTÓRIA</h3>
-          <p class="sobre__text"
-             data-pt="Sou psicóloga portuguesa e divido o meu tempo entre Portugal e Luxemburgo. Trabalho com crianças, adolescentes e adultos, em consulta presencial ou online, em Português, Francês, Inglês e Espanhol. O que me move é criar um espaço onde as pessoas se sintam à vontade para falar, sem pressão e sem julgamento."
-             data-fr="Je suis psychologue portugaise et je partage mon temps entre le Portugal et le Luxembourg. Je travaille avec des enfants, des adolescents et des adultes, en consultation présentielle ou en ligne, en Portugais, Français, Anglais et Espagnol. Ce qui me motive, c'est créer un espace où les personnes se sentent à l'aise pour parler, sans pression et sans jugement.">Sou psicóloga portuguesa e divido o meu tempo entre Portugal e Luxemburgo. Trabalho com crianças, adolescentes e adultos, em consulta presencial ou online, em Português, Francês, Inglês e Espanhol. O que me move é criar um espaço onde as pessoas se sintam à vontade para falar, sem pressão e sem julgamento.</p>
-        </div>
-        <div class="sobre__cols">
-          <div class="sobre__col">
-            <h3 class="sobre__label" data-pt="EDUCAÇÃO" data-fr="FORMATION">EDUCAÇÃO</h3>
-            <p class="sobre__text"
-               data-pt="Tenho mestrado em Psicologia pelo Instituto Universitário de Lisboa e a minha prática clínica é baseada na Terapia Cognitivo-Comportamental (TCC). A TCC trabalha a relação entre pensamentos, emoções e comportamentos, e é uma das abordagens com maior evidência científica na área da saúde mental. O meu objetivo não é dar respostas prontas. É ajudar cada pessoa a perceber o que se passa dentro de si e a encontrar o seu próprio caminho para o equilíbrio."
-               data-fr="J'ai un master en Psychologie de l'Institut Universitaire de Lisbonne et ma pratique clinique est basée sur la Thérapie Cognitivo-Comportementale (TCC). La TCC travaille la relation entre pensées, émotions et comportements, et c'est l'une des approches avec le plus de preuves scientifiques dans le domaine de la santé mentale. Mon objectif n'est pas de donner des réponses toutes faites. C'est d'aider chaque personne à comprendre ce qui se passe en elle et à trouver son propre chemin vers l'équilibre.">Tenho mestrado em Psicologia pelo Instituto Universitário de Lisboa e a minha prática clínica é baseada na Terapia Cognitivo-Comportamental (TCC). A TCC trabalha a relação entre pensamentos, emoções e comportamentos, e é uma das abordagens com maior evidência científica na área da saúde mental. O meu objetivo não é dar respostas prontas. É ajudar cada pessoa a perceber o que se passa dentro de si e a encontrar o seu próprio caminho para o equilíbrio.</p>
-          </div>
-          <div class="sobre__col">
-            <h3 class="sobre__label" data-pt="EXPERIÊNCIA" data-fr="EXPÉRIENCE">EXPERIÊNCIA</h3>
-            <p class="sobre__text"
-               data-pt="Ao longo dos anos trabalhei com ansiedade, depressão, burnout, autoestima, dependência emocional, luto, fobias, TDAH, dificuldades relacionais e familiares, e pessoas em fases de mudança ou sobrecarga emocional. Tenho também experiência na área organizacional: carreira, propósito, tomada de decisão e equilíbrio entre vida pessoal e profissional. Uma parte significativa do meu trabalho acompanha emigrantes e expatriados que lidam com a distância, a adaptação e a pressão de viver longe de casa."
-               data-fr="Au fil des années, j'ai travaillé avec l'anxiété, la dépression, le burnout, l'estime de soi, la dépendance émotionnelle, le deuil, les phobies, le TDAH, les difficultés relationnelles et familiales, et des personnes en phases de changement ou de surcharge émotionnelle. J'ai également de l'expérience dans le domaine organisationnel : carrière, objectifs, prise de décision et équilibre entre vie personnelle et professionnelle. Une part significative de mon travail accompagne des émigrés et des expatriés qui font face à la distance, l'adaptation et la pression de vivre loin de chez eux.">Ao longo dos anos trabalhei com ansiedade, depressão, burnout, autoestima, dependência emocional, luto, fobias, TDAH, dificuldades relacionais e familiares, e pessoas em fases de mudança ou sobrecarga emocional. Tenho também experiência na área organizacional: carreira, propósito, tomada de decisão e equilíbrio entre vida pessoal e profissional. Uma parte significativa do meu trabalho acompanha emigrantes e expatriados que lidam com a distância, a adaptação e a pressão de viver longe de casa.</p>
-          </div>
-        </div>
-      </div>
-      <div class="section__cta">
-        <a href="about.html" class="section-btn" data-pt="SABER MAIS" data-fr="EN SAVOIR PLUS">SABER MAIS</a>
-      </div>
-    </section><!-- /#sobre -->
-
-    <!-- ============================================================
          CONTATOS SECTION
          ============================================================ -->
     <section id="contatos" class="section contatos-section" aria-label="Contactos">
@@ -799,7 +768,6 @@
         </div>
       </div>
     </section><!-- /#contatos -->
-
   </main>
 
   <!-- ================================================================
