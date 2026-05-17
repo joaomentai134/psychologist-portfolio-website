@@ -15,6 +15,7 @@
   --color-green:    #76B583; /* Absinthe Green — accent */
   --color-dark:     #39373B; /* Phantom — primary text / CTA */
   --color-pure-white: #FFFFFF; /* Hero background */
+  --color-wine:     #7A2035; /* Bordeaux — CTA buttons (approved last-minute) */
   --color-whatsapp: #25D366; /* WhatsApp green */
 
   /* Typography */
@@ -485,7 +486,7 @@ button {
   display: inline-flex;
   align-items: center;
   gap: var(--space-sm);
-  background-color: var(--color-dark);
+  background-color: var(--color-wine);
   color: var(--color-pure-white);
   font-family: var(--font-sans);
   font-size: 0.7rem;
@@ -494,7 +495,7 @@ button {
   text-transform: uppercase;
   padding: 0.85em 2.4em;
   border-radius: var(--border-radius-pill);
-  border: 2px solid var(--color-dark);
+  border: 2px solid var(--color-wine);
   transition:
     background-color var(--transition-base),
     color var(--transition-base),
@@ -506,7 +507,7 @@ button {
 
 .hero__cta:hover {
   background-color: transparent;
-  color: var(--color-dark);
+  color: var(--color-wine);
   box-shadow: var(--shadow-md);
   transform: translateY(-1px);
 }
