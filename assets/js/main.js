@@ -217,4 +217,33 @@
     });
   }());
 
-})();
+  /* ----------------------------------------------------------
+     5. SPLIDE CAROUSELS — Serviços & Especialidades
+     ---------------------------------------------------------- */
+  (function initCarousels () {
+    var carouselConfig = {
+      type: 'loop',
+      perPage: 3,
+      perMove: 1,
+      focus: 'center',
+      gap: '2rem',
+      arrows: true,
+      pagination: false,
+      breakpoints: {
+        767:  { perPage: 1, gap: '1rem' },
+        1023: { perPage: 2, gap: '1.5rem' }
+      }
+    };
+
+    var servicosEl = document.getElementById('servicos-carousel');
+    if (servicosEl && typeof Splide !== 'undefined') {
+      new Splide(servicosEl, carouselConfig).mount();
+    }
+
+    var especialidadesEl = document.getElementById('especialidades-carousel');
+    if (especialidadesEl && typeof Splide !== 'undefined') {
+      new Splide(especialidadesEl, carouselConfig).mount();
+    }
+  }());
+
+}());

@@ -765,6 +765,153 @@ button {
 }
 
 /* ------------------------------------------------------------
+   11b. CAROUSEL SECTIONS — Serviços & Especialidades
+   ------------------------------------------------------------ */
+
+/* SECTION SHARED */
+.section {
+  padding: var(--space-3xl) 0;
+  background-color: var(--color-pure-white);
+}
+
+.section__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  padding: 0 var(--space-lg);
+  margin-bottom: var(--space-3xl);
+}
+
+.section__title {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-taupe);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.section__divider {
+  flex: 1;
+  height: 1px;
+  background-color: var(--color-taupe);
+}
+
+/* CAROUSEL CARD */
+.carousel-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background-color: #FFFFFF;
+  height: 100%;
+  min-height: 340px;
+  transition: background-color var(--transition-base);
+  gap: var(--space-lg);
+}
+
+.splide__slide.is-active .carousel-card {
+  background-color: var(--color-white); /* Antique White */
+  box-shadow: var(--shadow-sm);
+}
+
+.carousel-card__icon {
+  width: 72px;
+  height: 72px;
+  color: var(--color-dark);
+  flex-shrink: 0;
+}
+
+.carousel-card__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-card__title {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-dark);
+  line-height: 1.3;
+}
+
+.carousel-card__desc {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--color-gray);
+  line-height: 1.7;
+  text-align: justify;
+}
+
+/* Splide custom arrows */
+.carousel .splide__arrow {
+  background: none;
+  box-shadow: none;
+  width: 2rem;
+  height: 2rem;
+  opacity: 1;
+}
+
+.carousel .splide__arrow svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: none;
+  stroke: var(--color-dark);
+  stroke-width: 2;
+}
+
+.carousel .splide__arrow:hover svg {
+  stroke: var(--color-taupe);
+}
+
+.carousel .splide__arrow--prev { left: 0.5rem; }
+.carousel .splide__arrow--next { right: 0.5rem; }
+
+/* Section CTA button */
+.section__cta {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-2xl);
+}
+
+.section-btn {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--color-dark);
+  color: var(--color-pure-white);
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.75em 2em;
+  border-radius: var(--border-radius-pill);
+  border: 2px solid var(--color-dark);
+  transition: background-color var(--transition-base), color var(--transition-base), transform var(--transition-fast);
+  text-decoration: none;
+}
+
+.section-btn:hover {
+  background-color: transparent;
+  color: var(--color-dark);
+  transform: translateY(-1px);
+}
+
+/* Responsive padding for section header */
+@media (min-width: 768px) {
+  .section__header { padding: 0 var(--space-2xl); }
+}
+@media (min-width: 1024px) {
+  .section__header { padding: 0 var(--space-3xl); }
+}
+
+/* ------------------------------------------------------------
    12. REDUCED MOTION
    ------------------------------------------------------------ */
 @media (prefers-reduced-motion: reduce) {
