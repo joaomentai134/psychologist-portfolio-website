@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary Meta Tags -->
+  <title>Dra. Tânia Ferreira | Psicóloga Clínica</title>
+  <meta name="description"
+        content="Dra. Tânia Ferreira — Psicóloga Clínica. Consultas individuais, terapia de casal e acompanhamento psicológico personalizado. Marque a sua consulta hoje." />
+  <meta name="author" content="Tânia Ferreira" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content="Dra. Tânia Ferreira | Psicóloga Clínica" />
+  <meta property="og:description" content="Consultas individuais, terapia de casal e acompanhamento psicológico personalizado." />
+  <meta property="og:locale"      content="pt_PT" />
+
+  <!-- Favicon placeholder -->
+  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />
+
+  <!-- Google Fonts: Cormorant Garamond + Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+
+  <!-- ================================================================
+       NAVBAR
+       ================================================================ -->
+  <header>
+    <nav class="navbar" id="navbar" role="navigation" aria-label="Navegação principal">
+
+      <!-- Logo -->
+      <a href="#inicio" class="navbar__logo" aria-label="Tânia Ferreira Psicóloga — Página inicial">
+
+        <!-- Two intertwined loops SVG icon -->
+        <svg class="navbar__logo-icon"
+             viewBox="0 0 36 36"
+             fill="none"
+             xmlns="http://www.w3.org/2000/svg"
+             aria-hidden="true"
+             focusable="false">
+          <ellipse cx="13" cy="18" rx="9" ry="9"
+                   stroke="currentColor" stroke-width="1.4" fill="none" />
+          <ellipse cx="23" cy="18" rx="9" ry="9"
+                   stroke="currentColor" stroke-width="1.4" fill="none"
+                   opacity="0.65" />
+          <!-- Intersection highlight -->
+          <path d="M18 10.5 C20.5 13 20.5 23 18 25.5 C15.5 23 15.5 13 18 10.5 Z"
+                fill="currentColor" opacity="0.18" />
+        </svg>
+
+        <span class="navbar__logo-text">
+          <span class="navbar__logo-name">
+            TÂNIA<span>/</span>FERREIRA
+          </span>
+          <span class="navbar__logo-title"
+                data-pt="PSICÓLOGA"
+                data-fr="PSYCHOLOGUE">PSICÓLOGA</span>
+        </span>
+      </a>
+
+      <!-- Desktop navigation -->
+      <nav class="navbar__nav" aria-label="Links de navegação">
+        <ul class="navbar__nav-list" role="list">
+          <li class="navbar__nav-item">
+            <a href="#inicio"
+               class="navbar__nav-link is-active"
+               data-pt="PÁGINA INICIAL"
+               data-fr="ACCUEIL"
+               aria-current="page">PÁGINA INICIAL</a>
+          </li>
+          <li class="navbar__nav-item">
+            <a href="#sobre"
+               class="navbar__nav-link"
+               data-pt="SOBRE MIM"
+               data-fr="À PROPOS">SOBRE MIM</a>
+          </li>
+          <li class="navbar__nav-item">
+            <a href="#servicos"
+               class="navbar__nav-link"
+               data-pt="SERVIÇOS"
+               data-fr="SERVICES">SERVIÇOS</a>
+          </li>
+          <li class="navbar__nav-item">
+            <a href="#feedback"
+               class="navbar__nav-link"
+               data-pt="FEEDBACK"
+               data-fr="AVIS">FEEDBACK</a>
+          </li>
+          <li class="navbar__nav-item">
+            <a href="#especialidades"
+               class="navbar__nav-link"
+               data-pt="ESPECIALIDADES"
+               data-fr="SPÉCIALITÉS">ESPECIALIDADES</a>
+          </li>
+          <li class="navbar__nav-item">
+            <a href="#contatos"
+               class="navbar__nav-link"
+               data-pt="CONTATOS"
+               data-fr="CONTACTS">CONTATOS</a>
+          </li>
+        </ul>
+
+        <!-- Language toggle -->
+        <div class="navbar__lang" role="group" aria-label="Seleção de idioma">
+          <button class="navbar__lang-btn is-active"
+                  id="lang-pt-desktop"
+                  aria-pressed="true"
+                  title="Português">PT</button>
+          <span class="navbar__lang-sep" aria-hidden="true">&nbsp;|&nbsp;</span>
+          <button class="navbar__lang-btn"
+                  id="lang-fr-desktop"
+                  aria-pressed="false"
+                  title="Français">FR</button>
+        </div>
+      </nav>
+
+      <!-- Mobile hamburger -->
+      <button class="navbar__hamburger"
+              id="hamburger-btn"
+              aria-expanded="false"
+              aria-controls="mobile-nav"
+              aria-label="Abrir menu de navegação">
+        <span class="navbar__hamburger-bar"></span>
+        <span class="navbar__hamburger-bar"></span>
+        <span class="navbar__hamburger-bar"></span>
+      </button>
+
+    </nav><!-- /.navbar -->
+
+    <!-- Mobile dropdown nav (outside .navbar so it can slide below it) -->
+    <div class="navbar__mobile-nav" id="mobile-nav" role="dialog" aria-modal="false" aria-label="Menu móvel">
+      <ul class="navbar__mobile-nav-list" role="list">
+        <li class="navbar__mobile-nav-item">
+          <a href="#inicio"
+             class="navbar__mobile-nav-link is-active"
+             data-pt="PÁGINA INICIAL"
+             data-fr="ACCUEIL"
+             aria-current="page">PÁGINA INICIAL</a>
+        </li>
+        <li class="navbar__mobile-nav-item">
+          <a href="#sobre"
+             class="navbar__mobile-nav-link"
+             data-pt="SOBRE MIM"
+             data-fr="À PROPOS">SOBRE MIM</a>
+        </li>
+        <li class="navbar__mobile-nav-item">
+          <a href="#servicos"
+             class="navbar__mobile-nav-link"
+             data-pt="SERVIÇOS"
+             data-fr="SERVICES">SERVIÇOS</a>
+        </li>
+        <li class="navbar__mobile-nav-item">
+          <a href="#feedback"
+             class="navbar__mobile-nav-link"
+             data-pt="FEEDBACK"
+             data-fr="AVIS">FEEDBACK</a>
+        </li>
+        <li class="navbar__mobile-nav-item">
+          <a href="#especialidades"
+             class="navbar__mobile-nav-link"
+             data-pt="ESPECIALIDADES"
+             data-fr="SPÉCIALITÉS">ESPECIALIDADES</a>
+        </li>
+        <li class="navbar__mobile-nav-item">
+          <a href="#contatos"
+             class="navbar__mobile-nav-link"
+             data-pt="CONTATOS"
+             data-fr="CONTACTS">CONTATOS</a>
+        </li>
+      </ul>
+
+      <!-- Language toggle (mobile) -->
+      <div class="navbar__mobile-lang navbar__lang"
+           role="group"
+           aria-label="Seleção de idioma">
+        <button class="navbar__lang-btn is-active"
+                id="lang-pt-mobile"
+                aria-pressed="true"
+                title="Português">PT</button>
+        <span class="navbar__lang-sep" aria-hidden="true">&nbsp;|&nbsp;</span>
+        <button class="navbar__lang-btn"
+                id="lang-fr-mobile"
+                aria-pressed="false"
+                title="Français">FR</button>
+      </div>
+    </div><!-- /#mobile-nav -->
+
+  </header>
+
+  <!-- ================================================================
+       MAIN CONTENT
+       ================================================================ -->
+  <main id="main-content">
+
+    <!-- ============================================================
+         HERO SECTION
+         ============================================================ -->
+    <section class="hero" id="inicio" aria-label="Introdução">
+
+      <div class="hero__container">
+
+        <!-- Left: Quote + CTA -->
+        <div class="hero__content">
+
+          <blockquote class="hero__quote">
+            <span class="hero__quote-open" aria-hidden="true">&ldquo;</span>
+            <span class="hero__quote-line1"
+                  data-pt="If you can dream it."
+                  data-fr="Si vous pouvez le rêver.">If you can dream it.</span>
+            <span class="hero__quote-line2"
+                  data-pt="You can do it"
+                  data-fr="Vous pouvez le faire">You can do it<span class="hero__quote-close" aria-hidden="true">&rdquo;</span></span>
+          </blockquote>
+
+          <p class="hero__quote-author"
+             data-pt="— Walt Disney"
+             data-fr="— Walt Disney">— Walt Disney</p>
+
+          <a href="#contatos"
+             class="hero__cta"
+             data-pt="MARCAR CONSULTA"
+             data-fr="PRENDRE RENDEZ-VOUS"
+             aria-label="Marcar consulta — ir para a secção de contacto">MARCAR CONSULTA</a>
+
+        </div><!-- /.hero__content -->
+
+        <!-- Right: Photo placeholder -->
+        <div class="hero__photo" role="img" aria-label="Fotografia de Tânia Ferreira — a ser adicionada">
+          <!-- Replace this div with an <img> tag when the photo is provided:
+               <img src="assets/images/tania-ferreira.jpg"
+                    alt="Dra. Tânia Ferreira, Psicóloga Clínica"
+                    width="460" height="580" loading="eager" /> -->
+        </div>
+
+      </div><!-- /.hero__container -->
+
+      <!-- Scroll indicator -->
+      <div class="hero__scroll-indicator" aria-hidden="true">
+        <span class="hero__scroll-indicator-text">scroll</span>
+        <svg class="hero__scroll-chevron"
+             viewBox="0 0 24 24"
+             fill="none"
+             stroke="currentColor"
+             stroke-width="1.5"
+             stroke-linecap="round"
+             stroke-linejoin="round"
+             xmlns="http://www.w3.org/2000/svg">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </div>
+
+    </section><!-- /#inicio -->
+
+    <!-- ============================================================
+         ESPECIALIDADES SECTION — placeholder
+         ============================================================ -->
+    <!-- <section id="especialidades" aria-label="Especialidades">
+         …to be built in next iteration…
+    </section> -->
+
+    <!-- ============================================================
+         SERVIÇOS SECTION — placeholder
+         ============================================================ -->
+    <!-- <section id="servicos" aria-label="Serviços">
+         …to be built in next iteration…
+    </section> -->
+
+    <!-- ============================================================
+         SOBRE MIM SECTION — placeholder
+         ============================================================ -->
+    <!-- <section id="sobre" aria-label="Sobre mim">
+         …to be built in next iteration…
+    </section> -->
+
+    <!-- ============================================================
+         TESTEMUNHOS / FEEDBACK SECTION — placeholder
+         ============================================================ -->
+    <!-- <section id="feedback" aria-label="Testemunhos">
+         …to be built in next iteration…
+    </section> -->
+
+    <!-- ============================================================
+         CONTACTO SECTION — placeholder
+         ============================================================ -->
+    <!-- <section id="contatos" aria-label="Contacto">
+         …to be built in next iteration…
+    </section> -->
+
+  </main>
+
+  <!-- ================================================================
+       FOOTER — placeholder
+       ================================================================ -->
+  <!-- <footer id="footer">
+       …to be built in next iteration…
+  </footer> -->
+
+  <!-- ================================================================
+       WHATSAPP FLOATING BUTTON
+       ================================================================ -->
+  <a class="whatsapp-btn"
+     href="https://wa.me/351916684023"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Contactar via WhatsApp — +351 916 684 023">
+
+    <!-- WhatsApp SVG icon -->
+    <svg viewBox="0 0 24 24"
+         xmlns="http://www.w3.org/2000/svg"
+         fill="currentColor"
+         aria-hidden="true"
+         focusable="false">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+    </svg>
+
+    <span class="whatsapp-btn__tooltip"
+          data-pt="Fale connosco"
+          data-fr="Nous contacter">Fale connosco</span>
+  </a>
+
+  <!-- ================================================================
+       SCRIPTS
+       ================================================================ -->
+  <script src="assets/js/main.js" defer></script>
+
+</body>
+</html>
