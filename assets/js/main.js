@@ -244,6 +244,23 @@
     if (especialidadesEl && typeof Splide !== 'undefined') {
       new Splide(especialidadesEl, carouselConfig).mount();
     }
+
+    var feedbackEl = document.getElementById('feedback-carousel');
+    if (feedbackEl && typeof Splide !== 'undefined') {
+      new Splide(feedbackEl, {
+        type: 'loop',
+        perPage: 3,
+        perMove: 1,
+        focus: 'center',
+        gap: '1.5rem',
+        arrows: true,
+        pagination: true,
+        breakpoints: {
+          767:  { perPage: 1, gap: '1rem' },
+          1023: { perPage: 2, gap: '1.5rem' }
+        }
+      }).mount();
+    }
   }());
 
 }());
