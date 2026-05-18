@@ -138,9 +138,8 @@ button {
     box-shadow var(--transition-base);
 }
 
-/* Shrink + frosted glass on scroll */
+/* Frosted glass on scroll — height and logo stay the same */
 .navbar.scrolled {
-  height: var(--navbar-height-scrolled);
   background-color: rgba(238, 229, 211, 0.50);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -163,10 +162,7 @@ button {
   transition: height var(--transition-base);
 }
 
-/* Logo shrinks slightly on scroll */
-.navbar.scrolled .navbar__logo-img {
-  height: 150px;
-}
+/* Logo height unchanged on scroll */
 
 /* ---- Nav links (desktop) ---- */
 .navbar__nav {
