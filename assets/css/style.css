@@ -65,6 +65,8 @@ html {
   font-size: 16px;
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  /* Anchor links skip below the fixed navbar */
+  scroll-padding-top: var(--navbar-height);
 }
 
 body {
@@ -869,7 +871,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 500px;
+  min-height: calc(100vh - var(--navbar-height));
   padding: var(--space-3xl) var(--space-lg);
   background-color: #F5F0E8;
   position: relative;
@@ -1212,11 +1214,11 @@ button {
 .site-footer {
   background-color: var(--color-dark);
   color: var(--color-taupe);
-  padding: var(--space-2xl) var(--space-lg);
+  padding: var(--space-sm) var(--space-lg);
   text-align: center;
   display: flex;
   flex-direction: column;
-  gap: var(--space-lg);
+  gap: var(--space-xs);
 }
 
 .site-footer__name {
