@@ -33,8 +33,8 @@
   --space-3xl: 4rem;
 
   /* Navbar */
-  --navbar-height:        64px;
-  --navbar-height-scrolled: 52px;
+  --navbar-height:          76px;
+  --navbar-height-scrolled: 60px;
 
   /* Transitions */
   --transition-fast:   150ms ease;
@@ -138,10 +138,10 @@ button {
 /* Shrink + frosted glass on scroll */
 .navbar.scrolled {
   height: var(--navbar-height-scrolled);
-  background-color: rgba(238, 229, 211, 0.82);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 2px 20px rgba(57, 55, 59, 0.10);
+  background-color: rgba(238, 229, 211, 0.50);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 4px 28px rgba(57, 55, 59, 0.18);
 }
 
 /* ---- Logo ---- */
@@ -153,7 +153,7 @@ button {
 }
 
 .navbar__logo-img {
-  height: 48px;
+  height: 60px;
   width: auto;
   display: block;
 }
@@ -372,40 +372,52 @@ button {
 .hero {
   min-height: calc(100vh - var(--navbar-height));
   margin-top: var(--navbar-height);
-  background-image: url('../images/tania-ferreira.jpg');
-  background-size: cover;
-  background-position: right center;
-  background-repeat: no-repeat;
+  background-color: var(--color-white); /* fallback */
   display: flex;
-  align-items: center;
+  align-items: flex-start; /* content anchored top-left */
   position: relative;
   overflow: hidden;
 }
 
-/* Gradient overlay — makes left side readable */
+/* Photo layer — flipped horizontally */
 .hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('../images/tania-ferreira.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  transform: scaleX(-1);
+  z-index: 0;
+}
+
+/* Gradient overlay — clean fade, no colour cast */
+.hero::after {
   content: '';
   position: absolute;
   inset: 0;
   background: linear-gradient(
     to right,
-    rgba(238, 229, 211, 0.92) 0%,
-    rgba(238, 229, 211, 0.72) 50%,
-    rgba(238, 229, 211, 0.10) 100%
+    rgba(249, 247, 246, 0.97) 0%,
+    rgba(249, 247, 246, 0.82) 32%,
+    rgba(249, 247, 246, 0.25) 58%,
+    transparent 78%
   );
-  z-index: 0;
+  z-index: 1;
 }
 
 /* ---- Quote block ---- */
 .hero__content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--space-xl);
-  max-width: 520px;
-  padding: var(--space-3xl) var(--space-lg);
+  gap: 0;                          /* gaps handled per-child below */
+  max-width: 480px;
+  padding: var(--space-2xl) var(--space-lg);
+  margin-top: var(--space-xl);     /* pull down from very top */
 }
 
 .hero__quote {
@@ -413,6 +425,7 @@ button {
   color: var(--color-taupe);
   line-height: 1.2;
   position: relative;
+  margin-bottom: var(--space-xs); /* snug before author */
 }
 
 .hero__quote-open {
@@ -457,7 +470,8 @@ button {
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--color-gray);
-  margin-top: var(--space-sm);
+  margin-top: var(--space-xs);   /* tight — close to quote */
+  margin-bottom: var(--space-xl); /* space before CTA */
 }
 
 /* ---- CTA button ---- */
@@ -499,34 +513,54 @@ button {
 .hero__scroll-indicator {
   position: absolute;
   bottom: var(--space-xl);
-  right: var(--space-lg);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--space-xs);
-  opacity: 0.55;
+  cursor: default;
   animation: scroll-bob 2s ease-in-out infinite;
 }
 
-.hero__scroll-indicator-text {
+/* Hover label — appears above the chevron */
+.hero__scroll-indicator::before {
+  content: 'CONTACTE-ME';
   font-family: var(--font-sans);
-  font-size: 0.55rem;
+  font-size: 0.58rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--color-gray);
-  writing-mode: vertical-lr;
-  transform: rotate(180deg);
+  color: var(--color-dark);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  white-space: nowrap;
+  order: -1; /* flex: show above chevron */
+}
+
+.hero__scroll-indicator:hover::before {
+  opacity: 0.7;
+}
+
+.hero__scroll-indicator-text {
+  display: none; /* hidden — only chevron shows */
 }
 
 .hero__scroll-chevron {
-  width: 20px;
-  height: 20px;
-  color: var(--color-gray);
+  width: 36px;
+  height: 36px;
+  color: var(--color-dark);
+  opacity: 0.45;
+  transition: opacity var(--transition-base);
+}
+
+.hero__scroll-indicator:hover .hero__scroll-chevron {
+  opacity: 0.75;
 }
 
 @keyframes scroll-bob {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(5px); }
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(7px); }
 }
 
 /* ------------------------------------------------------------
@@ -537,16 +571,18 @@ button {
   bottom: var(--space-xl);
   right: var(--space-xl);
   z-index: 900;
-  width: 56px;
-  height: 56px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  background-color: var(--color-whatsapp);
-  color: var(--color-pure-white);
+  background-color: var(--color-white); /* cream — matches navbar */
+  color: var(--color-dark);             /* dark icon */
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.45);
+  box-shadow: 0 4px 18px rgba(57, 55, 59, 0.20);
   transition:
+    background-color var(--transition-base),
+    color var(--transition-base),
     transform var(--transition-base),
     box-shadow var(--transition-base);
   text-decoration: none;
@@ -554,8 +590,10 @@ button {
 }
 
 .whatsapp-btn:hover {
+  background-color: var(--color-taupe); /* taupe on hover */
+  color: var(--color-pure-white);        /* white icon on hover */
   transform: scale(1.08) translateY(-2px);
-  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.55);
+  box-shadow: 0 8px 24px rgba(57, 55, 59, 0.28);
 }
 
 .whatsapp-btn:active {
@@ -563,8 +601,8 @@ button {
 }
 
 .whatsapp-btn svg {
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   flex-shrink: 0;
 }
 

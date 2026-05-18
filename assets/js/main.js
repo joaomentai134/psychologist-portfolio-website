@@ -191,10 +191,19 @@
       '.navbar__nav-link, .navbar__mobile-nav-link'
     );
 
+    // Map section IDs to their corresponding nav href values
+    // (some sections link out to standalone pages instead of anchors)
+    var sectionHrefMap = {
+      'sobre':    'about.html',
+      'contatos': 'contact.html'
+    };
+
     function setActive (id) {
       allNavLinks.forEach(function (link) {
-        const href = link.getAttribute('href');
-        const isMatch = href === '#' + id;
+        var href = link.getAttribute('href');
+        var anchorMatch = href === '#' + id;
+        var pageMatch   = sectionHrefMap[id] && href === sectionHrefMap[id];
+        var isMatch     = anchorMatch || pageMatch;
         link.classList.toggle('is-active', isMatch);
         if (isMatch) {
           link.setAttribute('aria-current', 'page');
