@@ -184,26 +184,19 @@
         falls back to no highlighting beyond initial state.
      ---------------------------------------------------------- */
   (function initActiveNav () {
-    const sections = document.querySelectorAll('main section[id]');
+    var sections = document.querySelectorAll('main section[id]');
     if (!sections.length || !('IntersectionObserver' in window)) return;
 
-    const allNavLinks = document.querySelectorAll(
+    var allNavLinks = document.querySelectorAll(
       '.navbar__nav-link, .navbar__mobile-nav-link'
     );
 
-    // Map section IDs to their corresponding nav href values
-    // (some sections link out to standalone pages instead of anchors)
-    var sectionHrefMap = {
-      'sobre':    'about.html',
-      'contatos': 'contact.html'
-    };
-
+    // sections that nav links point to via anchor on this page
+    // (after moving SOBRE MIM → #sobre and CONTATOS → #contatos, all use anchors)
     function setActive (id) {
       allNavLinks.forEach(function (link) {
-        var href = link.getAttribute('href');
-        var anchorMatch = href === '#' + id;
-        var pageMatch   = sectionHrefMap[id] && href === sectionHrefMap[id];
-        var isMatch     = anchorMatch || pageMatch;
+        var href    = link.getAttribute('href');
+        var isMatch = href === '#' + id;
         link.classList.toggle('is-active', isMatch);
         if (isMatch) {
           link.setAttribute('aria-current', 'page');
@@ -213,16 +206,34 @@
       });
     }
 
-    const observer = new IntersectionObserver(
+    // Track which sections are currently intersecting;
+    // always highlight the topmost one in document order.
+    var intersecting = new Set();
+
+    var observer = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
-            setActive(entry.target.id);
+            intersecting.add(entry.target.id);
+          } else {
+            intersecting.delete(entry.target.id);
           }
         });
+
+        // Pick the first (topmost) intersecting section
+        var activeId = null;
+        sections.forEach(function (section) {
+          if (!activeId && intersecting.has(section.id)) {
+            activeId = section.id;
+          }
+        });
+
+        if (activeId) {
+          setActive(activeId);
+        }
       },
       {
-        rootMargin: '-40% 0px -55% 0px',
+        rootMargin: '-20% 0px -70% 0px',
         threshold: 0
       }
     );
