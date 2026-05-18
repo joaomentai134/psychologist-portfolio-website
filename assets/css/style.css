@@ -524,23 +524,7 @@ button {
   animation: scroll-bob 2s ease-in-out infinite;
 }
 
-/* Hover label — appears above the chevron */
-.hero__scroll-indicator::before {
-  content: 'CONTACTE-ME';
-  font-family: var(--font-sans);
-  font-size: 0.58rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--color-dark);
-  opacity: 0;
-  transition: opacity var(--transition-base);
-  white-space: nowrap;
-  order: -1; /* flex: show above chevron */
-}
-
-.hero__scroll-indicator:hover::before {
-  opacity: 0.7;
-}
+/* No hover label on scroll indicator */
 
 .hero__scroll-indicator-text {
   display: none; /* hidden — only chevron shows */
