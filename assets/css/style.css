@@ -727,6 +727,12 @@ button {
   background-color: var(--color-bg);
 }
 
+/* Serviços + Especialidades — background white to contrast with pattern sections */
+#servicos,
+#especialidades {
+  background-color: var(--color-pure-white);
+}
+
 .section__header {
   display: flex;
   align-items: flex-end;
@@ -761,7 +767,7 @@ button {
   align-items: center;
   text-align: center;
   padding: 2rem 1.5rem;
-  background-color: var(--color-bg);
+  background-color: var(--color-pure-white);
   height: 100%;
   min-height: 340px;
   transition: background-color var(--transition-base);
@@ -893,7 +899,7 @@ button {
   background-image: url('../images/flower_pattern_colored.svg');
   background-size: 600px auto;
   background-repeat: repeat;
-  opacity: 0.5;
+  opacity: 0.35;
   z-index: 0;
 }
 
@@ -1072,7 +1078,7 @@ button {
   background-image: url('../images/flower_pattern_colored.svg');
   background-size: 600px auto;
   background-repeat: repeat;
-  opacity: 0.5;
+  opacity: 0.35;
   z-index: 0;
 }
 
@@ -1158,7 +1164,7 @@ button {
 }
 
 .form-input {
-  border-radius: 999px;
+  border-radius: 12px;
 }
 
 .form-textarea {
