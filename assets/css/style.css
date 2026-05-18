@@ -744,6 +744,7 @@ button {
   color: var(--color-taupe);
   white-space: nowrap;
   flex-shrink: 0;
+  line-height: 1;
 }
 
 .section__divider {
@@ -889,13 +890,13 @@ button {
   position: absolute;
   inset: 0;
   background-color: var(--color-taupe);
-  -webkit-mask-image: url('../images/flower_patter_backgroung.svg');
-  mask-image: url('../images/flower_patter_backgroung.svg');
+  -webkit-mask-image: url('../images/flower_pattern_mask.svg');
+  mask-image: url('../images/flower_pattern_mask.svg');
   -webkit-mask-size: 600px auto;
   mask-size: 600px auto;
   -webkit-mask-repeat: repeat;
   mask-repeat: repeat;
-  opacity: 0.12;
+  opacity: 0.18;
   z-index: 0;
 }
 
@@ -1072,13 +1073,13 @@ button {
   position: absolute;
   inset: 0;
   background-color: var(--color-taupe);
-  -webkit-mask-image: url('../images/flower_patter_backgroung.svg');
-  mask-image: url('../images/flower_patter_backgroung.svg');
+  -webkit-mask-image: url('../images/flower_pattern_mask.svg');
+  mask-image: url('../images/flower_pattern_mask.svg');
   -webkit-mask-size: 600px auto;
   mask-size: 600px auto;
   -webkit-mask-repeat: repeat;
   mask-repeat: repeat;
-  opacity: 0.12;
+  opacity: 0.18;
   z-index: 0;
 }
 
