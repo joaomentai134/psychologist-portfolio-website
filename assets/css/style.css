@@ -955,12 +955,12 @@ button {
    13. FEEDBACK SECTION
    ------------------------------------------------------------ */
 .feedback-section {
-  background-color: var(--color-bg);
+  background-color: var(--color-white);
 }
 
 .feedback-card {
   border: 1px solid var(--color-taupe);
-  background-color: var(--color-bg);
+  background-color: var(--color-white);
   padding: 2rem;
   height: 100%;
   min-height: 300px;
@@ -1011,7 +1011,7 @@ button {
    14. SOBRE MIM SECTION
    ------------------------------------------------------------ */
 .sobre-section {
-  background-color: var(--color-bg);
+  background-color: var(--color-white);
 }
 
 .sobre__content {
