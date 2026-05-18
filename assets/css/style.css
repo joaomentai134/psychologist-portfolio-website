@@ -453,6 +453,12 @@ button {
   font-style: italic;
 }
 
+/* ---- French hero quote — text is ~30% longer, scale down ---- */
+.lang-fr .hero__quote-line1,
+.lang-fr .hero__quote-line2 {
+  font-size: clamp(1.4rem, 5.0vw, 2.4rem);
+}
+
 .hero__quote-close {
   display: inline;
   font-size: 4rem;
