@@ -244,7 +244,21 @@
   }());
 
   /* ----------------------------------------------------------
-     5. SPLIDE CAROUSELS — Serviços & Especialidades
+     5. SCROLL INDICATOR CLICK — scroll suavemente para a
+        secção seguinte ao hero (#quote-transition)
+     ---------------------------------------------------------- */
+  (function initScrollIndicator () {
+    var indicator = document.querySelector('.hero__scroll-indicator');
+    var target    = document.getElementById('quote-transition');
+    if (!indicator || !target) return;
+
+    indicator.addEventListener('click', function () {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }());
+
+  /* ----------------------------------------------------------
+     6. SPLIDE CAROUSELS — Serviços & Especialidades
      ---------------------------------------------------------- */
   (function initCarousels () {
     var carouselConfig = {
