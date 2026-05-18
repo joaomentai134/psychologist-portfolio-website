@@ -761,7 +761,7 @@ button {
   align-items: center;
   text-align: center;
   padding: 2rem 1.5rem;
-  background-color: #FFFFFF;
+  background-color: var(--color-bg);
   height: 100%;
   min-height: 340px;
   transition: background-color var(--transition-base);
@@ -893,7 +893,7 @@ button {
   background-image: url('../images/flower_pattern_colored.svg');
   background-size: 600px auto;
   background-repeat: repeat;
-  opacity: 0.35;
+  opacity: 0.5;
   z-index: 0;
 }
 
@@ -955,12 +955,12 @@ button {
    13. FEEDBACK SECTION
    ------------------------------------------------------------ */
 .feedback-section {
-  background-color: var(--color-pure-white);
+  background-color: var(--color-bg);
 }
 
 .feedback-card {
   border: 1px solid var(--color-taupe);
-  background-color: var(--color-pure-white);
+  background-color: var(--color-bg);
   padding: 2rem;
   height: 100%;
   min-height: 300px;
@@ -1011,7 +1011,7 @@ button {
    14. SOBRE MIM SECTION
    ------------------------------------------------------------ */
 .sobre-section {
-  background-color: var(--color-pure-white);
+  background-color: var(--color-bg);
 }
 
 .sobre__content {
@@ -1072,7 +1072,7 @@ button {
   background-image: url('../images/flower_pattern_colored.svg');
   background-size: 600px auto;
   background-repeat: repeat;
-  opacity: 0.35;
+  opacity: 0.5;
   z-index: 0;
 }
 
