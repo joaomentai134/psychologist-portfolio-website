@@ -1163,6 +1163,102 @@ button {
 }
 
 /* ------------------------------------------------------------
+   14b. CTA SECTION — Próximo passo
+   ------------------------------------------------------------ */
+.cta-section {
+  background-color: var(--color-dark);
+  position: relative;
+  overflow: hidden;
+  padding: var(--space-3xl) var(--space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 420px;
+}
+
+/* Subtle flower pattern overlay */
+.cta-section__pattern {
+  position: absolute;
+  inset: 0;
+  background-image: url('../images/flower_pattern_colored.svg');
+  background-size: 520px auto;
+  background-repeat: repeat;
+  opacity: 0.05;
+  z-index: 0;
+}
+
+.cta-section__content {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+/* Label — "PRÓXIMO PASSO" */
+.cta-section__label {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-taupe);
+}
+
+/* Serif italic headline — two lines */
+.cta-section__heading {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.15;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 0;
+}
+
+.cta-section__line1 {
+  display: block;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  color: var(--color-white); /* antique white / cream */
+}
+
+.cta-section__line2 {
+  display: block;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  color: var(--color-taupe);
+}
+
+/* Thin divider */
+.cta-section__divider {
+  width: 36px;
+  height: 1px;
+  background-color: var(--color-taupe);
+  border: none;
+  margin: 0;
+  opacity: 0.5;
+}
+
+/* Body text */
+.cta-section__text {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--color-taupe);
+  line-height: 1.9;
+  max-width: 420px;
+  opacity: 0.85;
+}
+
+/* CTA button — inherit hero__cta styles, small top margin */
+.cta-section .hero__cta {
+  margin-top: var(--space-sm);
+}
+
+/* ------------------------------------------------------------
    15. CONTATOS SECTION
    ------------------------------------------------------------ */
 .contatos-section {
