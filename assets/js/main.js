@@ -258,7 +258,29 @@
   }());
 
   /* ----------------------------------------------------------
-     6. SPLIDE CAROUSELS — Serviços & Especialidades
+     6. SOBRE MIM — EXPAND / COLLAPSE (about.html)
+        Toggles .sobre__extra visibility on button click.
+        Button text is handled via CSS (.toggle-more / .toggle-less)
+        and the aria-expanded attribute, so language toggle keeps
+        working without extra JS.
+     ---------------------------------------------------------- */
+  (function initSobreToggle () {
+    var btn   = document.getElementById('sobre-toggle-btn');
+    var extra = document.getElementById('sobre-extra');
+    if (!btn || !extra) return;
+
+    btn.addEventListener('click', function () {
+      var isExpanded = btn.getAttribute('aria-expanded') === 'true';
+      var newState   = !isExpanded;
+
+      btn.setAttribute('aria-expanded', String(newState));
+      extra.classList.toggle('is-visible', newState);
+      extra.setAttribute('aria-hidden', String(!newState));
+    });
+  }());
+
+  /* ----------------------------------------------------------
+     7. SPLIDE CAROUSELS — Serviços & Especialidades
      ---------------------------------------------------------- */
   (function initCarousels () {
     var carouselConfig = {
