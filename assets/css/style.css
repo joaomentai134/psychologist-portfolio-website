@@ -403,43 +403,30 @@ button {
   display: none;
 }
 
-/* Tablet: left-side gradient + content card so text is readable over photo */
-@media (min-width: 768px) and (max-width: 1023px) {
-  .hero::after {
-    content: '';
-    display: block;
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to right,
-      rgba(238, 229, 211, 0.90) 0%,
-      rgba(238, 229, 211, 0.65) 40%,
-      rgba(238, 229, 211, 0.20) 60%,
-      transparent 78%
-    );
-    z-index: 1;
-  }
-
-}
 
 
 /* ---- Quote block ---- */
 .hero__content {
-  position: relative;
+  /* Mobile/tablet: absolute card, centered, above scroll indicator */
+  position: absolute;
   z-index: 2;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  text-align: center;
   gap: 0;
-  max-width: 100%;
-  padding: var(--space-lg);
-  margin-top: var(--space-xl);
-  margin-left: 0;
-  /* Mobile: semi-transparent card so text is readable over photo */
-  background-color: rgba(238, 229, 211, 0.88);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  align-self: flex-start;
+  /* Mobile sizing — compact, full-width minus lateral margins */
+  width: calc(100% - var(--space-xl) * 2);
+  max-width: 300px;
+  padding: 0.75rem var(--space-lg);
+  /* Position: lower-center, above scroll chevron */
+  left: 50%;
+  bottom: calc(var(--space-xl) + 72px);
+  transform: translateX(-50%);
+  /* Card: 60% opacity cream with blur */
+  background-color: rgba(238, 229, 211, 0.60);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .hero__quote {
@@ -452,7 +439,7 @@ button {
 
 .hero__quote-open {
   display: block;
-  font-size: 4rem;
+  font-size: 2.6rem; /* smaller on mobile; restored at 1024px */
   line-height: 0.6;
   margin-bottom: 0.2rem;
   font-style: normal;
@@ -462,14 +449,14 @@ button {
 
 .hero__quote-line1 {
   display: block;
-  font-size: clamp(2rem, 7vw, 3.2rem);
+  font-size: clamp(1.25rem, 5vw, 1.7rem); /* compact on mobile; restored at 1024px */
   font-weight: 400;
   font-style: italic;
 }
 
 .hero__quote-line2 {
   display: block;
-  font-size: clamp(2rem, 7vw, 3.2rem);
+  font-size: clamp(1.25rem, 5vw, 1.7rem);
   font-weight: 700;
   font-style: italic;
 }
@@ -482,7 +469,7 @@ button {
 
 .hero__quote-close {
   display: inline;
-  font-size: 4rem;
+  font-size: 2.6rem; /* smaller on mobile; restored at 1024px */
   line-height: 0;
   vertical-align: -0.35em;
   margin-left: 0.05em;
@@ -687,13 +674,8 @@ button {
   }
 
   .hero__content {
-    padding: var(--space-xl);
-    max-width: 50%;
-    margin-left: 14%;
-    margin-top: var(--space-2xl);
-    background-color: rgba(238, 229, 211, 0.70);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    max-width: 400px;
+    padding: var(--space-lg) var(--space-xl);
   }
 }
 
@@ -720,13 +702,37 @@ button {
   }
 
   .hero__content {
-    padding: 0 var(--space-2xl);
+    /* Desktop: reset card, restore original layout */
+    position: relative;
+    align-items: flex-start;
+    text-align: left;
+    width: auto;
     max-width: 54%;
+    padding: 0 var(--space-2xl);
+    left: auto;
+    bottom: auto;
+    transform: none;
+    margin-left: 14%;
+    margin-top: var(--space-2xl);
+    background-color: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .hero__quote-open,
+  .hero__quote-close {
+    font-size: 4rem;
   }
 
   .hero__quote-line1,
   .hero__quote-line2 {
-    font-size: clamp(2.4rem, 3.5vw, 3.6rem);
+    font-size: clamp(2rem, 7vw, 3.2rem);
+  }
+
+  /* French quote — desktop scale */
+  .lang-fr .hero__quote-line1,
+  .lang-fr .hero__quote-line2 {
+    font-size: clamp(1.4rem, 5vw, 2.4rem);
   }
 }
 
