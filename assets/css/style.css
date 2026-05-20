@@ -1071,18 +1071,18 @@ button {
 .sobre__toggle-wrap {
   display: flex;
   justify-content: center;
-  margin-top: var(--space-xl);
+  margin-top: var(--space-lg);
   margin-bottom: 0;
 }
 
 /* Sobre section — tighter vertical rhythm */
 .sobre-section {
   padding-top: var(--space-2xl);
-  padding-bottom: var(--space-2xl);
+  padding-bottom: var(--space-lg);
 }
 
 .sobre-section .section__header {
-  margin-bottom: var(--space-2xl);
+  margin-bottom: var(--space-xl);
 }
 
 .sobre-section .sobre__historia + .sobre__historia {
