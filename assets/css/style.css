@@ -1071,8 +1071,22 @@ button {
 .sobre__toggle-wrap {
   display: flex;
   justify-content: center;
-  margin-top: var(--space-2xl);
-  margin-bottom: var(--space-lg);
+  margin-top: var(--space-xl);
+  margin-bottom: 0;
+}
+
+/* Sobre section — tighter vertical rhythm */
+.sobre-section {
+  padding-top: var(--space-2xl);
+  padding-bottom: var(--space-2xl);
+}
+
+.sobre-section .section__header {
+  margin-bottom: var(--space-2xl);
+}
+
+.sobre-section .sobre__historia + .sobre__historia {
+  margin-top: var(--space-xl);
 }
 
 .sobre__info-note {
