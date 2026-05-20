@@ -806,6 +806,12 @@ button {
   text-align: justify;
 }
 
+/* ---- Carousel side padding — creates visible lateral margins ---- */
+.carousel {
+  padding: 0 var(--space-2xl);
+  position: relative;
+}
+
 /* Splide custom arrows — override full splide.min.css defaults */
 .carousel .splide__arrow {
   background: none;
@@ -814,27 +820,46 @@ button {
   width: 2.4rem;
   height: 2.4rem;
   opacity: 1;
-  top: 38%;
+  top: 40%;
 }
 
+/* Serviços / Especialidades arrows: active = #AEA393, disabled = #EEE5D3 */
 .carousel .splide__arrow svg {
   width: 1.2rem;
   height: 1.2rem;
   fill: none;
-  stroke: var(--color-taupe);
+  stroke: var(--color-taupe); /* #AEA393 — active */
   stroke-width: 2;
 }
 
-.carousel .splide__arrow:hover {
+.carousel .splide__arrow[disabled] svg {
+  stroke: var(--color-white); /* #EEE5D3 — inactive */
+}
+
+.carousel .splide__arrow:hover:not([disabled]) {
   background: none;
 }
 
-.carousel .splide__arrow:hover svg {
+.carousel .splide__arrow:hover:not([disabled]) svg {
   stroke: var(--color-dark);
 }
 
-.carousel .splide__arrow--prev { left: 0.25rem; }
-.carousel .splide__arrow--next { right: 0.25rem; }
+/* Arrows sit within the side padding area */
+.carousel .splide__arrow--prev { left: var(--space-sm); }
+.carousel .splide__arrow--next { right: var(--space-sm); }
+
+/* ---- Feedback carousel — different arrow colours ---- */
+#feedback-carousel .splide__arrow svg {
+  stroke: var(--color-dark); /* #39373B — active */
+}
+
+#feedback-carousel .splide__arrow[disabled] svg {
+  stroke: #D1D1D1; /* inactive */
+}
+
+#feedback-carousel .splide__arrow:hover:not([disabled]) svg {
+  stroke: var(--color-taupe);
+}
 
 /* Section CTA button */
 .section__cta {
@@ -961,8 +986,8 @@ button {
 }
 
 .feedback-card {
-  border: 1px solid var(--color-taupe);
-  background-color: var(--color-white);
+  border: 10px solid #FFFFFF;
+  background-color: transparent;
   padding: 2rem;
   height: 100%;
   min-height: 300px;
@@ -970,11 +995,13 @@ button {
   flex-direction: column;
   justify-content: space-between;
   gap: var(--space-lg);
-  transition: background-color var(--transition-base);
+  transition: background-color var(--transition-base), border-color var(--transition-base);
 }
 
+/* Central (active) card — solid white fill */
 .splide__slide.is-active .feedback-card {
-  background-color: var(--color-white);
+  background-color: #FFFFFF;
+  border-color: #FFFFFF;
 }
 
 .feedback-card__quote {
@@ -995,7 +1022,15 @@ button {
   margin-top: var(--space-md);
 }
 
-/* Pagination dots */
+/* Pagination dots — padding-bottom on carousel pushes them below cards */
+#feedback-carousel {
+  padding-bottom: 2.5rem;
+}
+
+#feedback-carousel .splide__pagination {
+  bottom: 0.5rem;
+}
+
 .splide__pagination__page {
   background: var(--color-taupe);
   opacity: 0.5;
