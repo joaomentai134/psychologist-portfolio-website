@@ -423,18 +423,25 @@ button {
   left: 50%;
   bottom: calc(var(--space-xl) + 72px);
   transform: translateX(-50%);
-  /* Card: 60% opacity cream with blur */
-  background-color: rgba(238, 229, 211, 0.60);
+  /* Card: 70% opacity cream with blur and rounded corners */
+  background-color: rgba(238, 229, 211, 0.70);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+  border-radius: 12px;
 }
 
 .hero__quote {
   font-family: var(--font-serif);
-  color: var(--color-taupe);
+  color: var(--color-dark); /* dark inside card; restored to taupe at 1280px+ */
   line-height: 1.2;
   position: relative;
   margin-bottom: 0.25rem;
+}
+
+/* CTA button — smaller inside the card (mobile/tablet) */
+.hero__content .hero__cta {
+  font-size: 0.6rem;
+  padding: 0.72em 1.8em;
 }
 
 .hero__quote-open {
@@ -701,13 +708,34 @@ button {
     gap: 0.85rem;
   }
 
+  /* 1024–1279px: still in card mode, just wider card + restore font sizes */
   .hero__content {
-    /* Desktop: reset card, restore original layout */
+    max-width: 460px;
+    padding: var(--space-xl) var(--space-2xl);
+  }
+
+  .hero__quote-open,
+  .hero__quote-close {
+    font-size: 3.6rem;
+  }
+
+  .hero__quote-line1,
+  .hero__quote-line2 {
+    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  }
+}
+
+/* ------------------------------------------------------------
+   11. RESPONSIVE — WIDE (min-width: 1280px)
+   ------------------------------------------------------------ */
+@media (min-width: 1280px) {
+  .hero__content {
+    /* 1280px+: exit card mode, restore original left-side layout */
     position: relative;
     align-items: flex-start;
     text-align: left;
     width: auto;
-    max-width: 54%;
+    max-width: 50%;
     padding: 0 var(--space-2xl);
     left: auto;
     bottom: auto;
@@ -715,10 +743,23 @@ button {
     margin-left: 14%;
     margin-top: var(--space-2xl);
     background-color: transparent;
+    border-radius: 0;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
   }
 
+  /* Restore taupe quote colour for desktop */
+  .hero__quote {
+    color: var(--color-taupe);
+  }
+
+  /* Restore full-size CTA button */
+  .hero__content .hero__cta {
+    font-size: 0.7rem;
+    padding: 0.85em 2.4em;
+  }
+
+  /* Restore full desktop quote font sizes */
   .hero__quote-open,
   .hero__quote-close {
     font-size: 4rem;
@@ -729,20 +770,9 @@ button {
     font-size: clamp(2rem, 7vw, 3.2rem);
   }
 
-  /* French quote — desktop scale */
   .lang-fr .hero__quote-line1,
   .lang-fr .hero__quote-line2 {
     font-size: clamp(1.4rem, 5vw, 2.4rem);
-  }
-}
-
-/* ------------------------------------------------------------
-   11. RESPONSIVE — WIDE (min-width: 1280px)
-   ------------------------------------------------------------ */
-@media (min-width: 1280px) {
-  .hero__content {
-    padding: 0 var(--space-2xl);
-    max-width: 50%;
   }
 }
 
