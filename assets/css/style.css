@@ -403,6 +403,26 @@ button {
   display: none;
 }
 
+/* Tablet: left-side gradient + content card so text is readable over photo */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero::after {
+    content: '';
+    display: block;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(238, 229, 211, 0.90) 0%,
+      rgba(238, 229, 211, 0.65) 40%,
+      rgba(238, 229, 211, 0.20) 60%,
+      transparent 78%
+    );
+    z-index: 1;
+  }
+
+}
+
+
 /* ---- Quote block ---- */
 .hero__content {
   position: relative;
@@ -411,10 +431,15 @@ button {
   flex-direction: column;
   align-items: flex-start;
   gap: 0;
-  max-width: 420px;
-  padding: 0 var(--space-lg);
-  margin-top: var(--space-2xl);
-  margin-left: 14%;
+  max-width: 100%;
+  padding: var(--space-lg);
+  margin-top: var(--space-xl);
+  margin-left: 0;
+  /* Mobile: semi-transparent card so text is readable over photo */
+  background-color: rgba(238, 229, 211, 0.88);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  align-self: flex-start;
 }
 
 .hero__quote {
@@ -661,18 +686,14 @@ button {
     padding: 0 var(--space-lg) 0 7px;
   }
 
-  /* Show desktop nav, hide hamburger */
-  .navbar__nav {
-    display: flex;
-  }
-
-  .navbar__hamburger {
-    display: none;
-  }
-
   .hero__content {
-    padding: 0 var(--space-xl);
+    padding: var(--space-xl);
     max-width: 50%;
+    margin-left: 14%;
+    margin-top: var(--space-2xl);
+    background-color: rgba(238, 229, 211, 0.70);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
   }
 }
 
@@ -684,8 +705,14 @@ button {
     padding: 0 var(--space-xl) 0 7px;
   }
 
+  /* Show desktop nav, hide hamburger — only from 1024px */
   .navbar__nav {
+    display: flex;
     gap: var(--space-lg);
+  }
+
+  .navbar__hamburger {
+    display: none;
   }
 
   .navbar__nav-list {
