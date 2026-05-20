@@ -1042,10 +1042,26 @@ button {
   text-align: justify;
 }
 
+.sobre__text + .sobre__text {
+  margin-top: var(--space-lg);
+}
+
 .sobre__cols {
   display: flex;
   flex-direction: column;
   gap: var(--space-2xl);
+}
+
+.sobre__info-note {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--color-taupe);
+  border-left: 2px solid var(--color-taupe);
+  padding-left: var(--space-md);
+  margin-top: var(--space-lg);
+  line-height: 1.6;
 }
 
 @media (min-width: 768px) {
