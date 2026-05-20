@@ -242,7 +242,8 @@ button {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   font-family: var(--font-sans);
-  padding: 2px 4px;
+  padding: 16px 0; /* expanded touch target */
+  min-width: 44px; /* min touch target width */
   transition: color var(--transition-fast);
   background: none;
   border: none;
@@ -276,20 +277,22 @@ button {
 .navbar__hamburger {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  width: 24px;
-  height: 17px;
+  justify-content: center;
+  gap: 5.5px; /* maintains same visual bar spacing */
+  width: 44px;  /* min touch target */
+  height: 44px; /* min touch target */
   margin-left: auto;
   padding: 0;
   background: none;
   border: none;
   cursor: pointer;
   flex-shrink: 0;
+  align-items: center;
 }
 
 .navbar__hamburger-bar {
   display: block;
-  width: 100%;
+  width: 24px; /* fixed visual width, not 100% of 44px button */
   height: 1.5px;
   background-color: var(--color-dark);
   border-radius: 2px;
@@ -501,6 +504,8 @@ button {
 .hero__cta {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  min-height: 44px; /* touch target */
   gap: var(--space-sm);
   background-color: var(--color-wine);
   color: var(--color-pure-white);
@@ -885,8 +890,8 @@ button {
   background: none;
   border: none;
   box-shadow: none;
-  width: 2.4rem;
-  height: 2.4rem;
+  width: 2.75rem;  /* 44px touch target */
+  height: 2.75rem; /* 44px touch target */
   opacity: 1;
   top: 40%;
 }
@@ -938,6 +943,8 @@ button {
 .section-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  min-height: 44px; /* touch target */
   background-color: var(--color-taupe);
   color: var(--color-pure-white);
   font-family: var(--font-sans);
@@ -1423,6 +1430,7 @@ button {
   background-color: transparent;
   border: 1px solid var(--color-taupe);
   padding: 0.85em 1.5em;
+  min-height: 44px; /* touch target */
   outline: none;
   transition: border-color var(--transition-fast);
 }
@@ -1526,6 +1534,8 @@ button {
   color: var(--color-taupe);
   text-decoration: none;
   transition: color var(--transition-fast);
+  padding: 14px 0; /* expand vertical touch area to 44px */
+  display: inline-block;
 }
 
 .site-footer__link:hover {
