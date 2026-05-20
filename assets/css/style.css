@@ -418,7 +418,7 @@ button {
   /* Mobile sizing — compact, full-width minus lateral margins */
   width: calc(100% - var(--space-xl) * 2);
   max-width: 300px;
-  padding: 0.75rem var(--space-lg);
+  padding: var(--space-lg) var(--space-xl);
   /* Position: lower-center, above scroll chevron */
   left: 50%;
   bottom: calc(var(--space-xl) + 72px);
@@ -427,7 +427,7 @@ button {
   background-color: rgba(238, 229, 211, 0.70);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border-radius: 12px;
+  border-radius: 24px;
 }
 
 .hero__quote {
@@ -450,7 +450,7 @@ button {
   line-height: 0.6;
   margin-bottom: 0.2rem;
   font-style: normal;
-  color: var(--color-taupe);
+  color: var(--color-dark);
   opacity: 0.5;
 }
 
@@ -481,7 +481,7 @@ button {
   vertical-align: -0.35em;
   margin-left: 0.05em;
   font-style: normal;
-  color: var(--color-taupe);
+  color: var(--color-dark);
   opacity: 0.5;
 }
 
@@ -748,8 +748,13 @@ button {
     -webkit-backdrop-filter: none;
   }
 
-  /* Restore taupe quote colour for desktop */
+  /* Restore taupe colours for desktop */
   .hero__quote {
+    color: var(--color-taupe);
+  }
+
+  .hero__quote-open,
+  .hero__quote-close {
     color: var(--color-taupe);
   }
 
