@@ -772,7 +772,7 @@
         <div class="contatos__separator" aria-hidden="true"></div>
 
         <div class="contatos__form-wrap">
-          <form class="contatos__form" action="https://formspree.io/f/mjgzywkq" method="POST">
+          <form class="contatos__form" id="contact-form" action="https://formspree.io/f/mjgzywkq" method="POST">
             <input type="hidden" name="_next" value="https://www.taniaferreira.com/obrigado.html"/>
             <input class="form-input"
                    type="text"
@@ -864,6 +864,33 @@
   <!-- Splide JS -->
   <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js" defer></script>
   <script src="assets/js/main.js" defer></script>
+
+  <!-- Formspree AJAX — intercepts submit and redirects to obrigado.html -->
+  <script>
+    (function () {
+      var form = document.getElementById('contact-form');
+      if (!form) return;
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        }).then(function (res) {
+          if (res.ok) {
+            window.location.href = 'obrigado.html';
+          } else {
+            res.json().then(function (data) {
+              var msg = (data.errors && data.errors.map(function (e) { return e.message; }).join(', ')) || 'Erro ao enviar. Tente novamente.';
+              alert(msg);
+            });
+          }
+        }).catch(function () {
+          alert('Erro de rede. Tente novamente.');
+        });
+      });
+    }());
+  </script>
 
 </body>
 </html>

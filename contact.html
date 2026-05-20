@@ -275,14 +275,6 @@
                     data-fr="ENVOYER">ENVIAR</button>
           </form>
 
-          <!-- Success message (hidden by default) -->
-          <div id="form-success"
-               class="form-success-msg"
-               aria-live="polite"
-               hidden>
-            <p data-pt="Mensagem enviada com sucesso. Entraremos em contacto em breve."
-               data-fr="Message envoyé avec succès. Nous vous contacterons prochainement.">Mensagem enviada com sucesso. Entraremos em contacto em breve.</p>
-          </div>
         </div>
       </div>
     </section>
@@ -335,26 +327,22 @@
        ================================================================ -->
   <script src="assets/js/main.js" defer></script>
 
-  <!-- Formspree AJAX submission with success message -->
+  <!-- Formspree AJAX — intercepts submit and redirects to obrigado.html -->
   <script>
     (function () {
       var form = document.getElementById('contact-form');
-      var successMsg = document.getElementById('form-success');
       if (!form) return;
-
       form.addEventListener('submit', function (e) {
         e.preventDefault();
-        var data = new FormData(form);
         fetch(form.action, {
           method: 'POST',
-          body: data,
+          body: new FormData(form),
           headers: { 'Accept': 'application/json' }
-        }).then(function (response) {
-          if (response.ok) {
-            form.hidden = true;
-            successMsg.hidden = false;
+        }).then(function (res) {
+          if (res.ok) {
+            window.location.href = 'obrigado.html';
           } else {
-            response.json().then(function (data) {
+            res.json().then(function (data) {
               var msg = (data.errors && data.errors.map(function (e) { return e.message; }).join(', ')) || 'Erro ao enviar. Tente novamente.';
               alert(msg);
             });
