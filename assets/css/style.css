@@ -1020,7 +1020,7 @@ button {
   padding: 0 var(--space-lg);
   display: flex;
   flex-direction: column;
-  gap: var(--space-3xl);
+  gap: 0;
 }
 
 .sobre__label {
@@ -1085,7 +1085,7 @@ button {
   margin-bottom: var(--space-xl);
 }
 
-.sobre-section .sobre__historia + .sobre__historia {
+.sobre__historia + .sobre__historia {
   margin-top: var(--space-xl);
 }
 
