@@ -1042,14 +1042,19 @@ button {
   text-align: justify;
 }
 
+/* Mobile: stack paragraphs */
 .sobre__text + .sobre__text {
   margin-top: var(--space-lg);
 }
 
-.sobre__cols {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2xl);
+/* Spacing between blocks */
+.sobre__historia + .sobre__historia {
+  margin-top: var(--space-xl);
+}
+
+/* Spacing above Experiência when it expands — clipped by overflow:hidden when collapsed */
+.sobre__extra .sobre__historia {
+  padding-top: var(--space-xl);
 }
 
 /* ---- Expandable extra content ---- */
@@ -1075,18 +1080,14 @@ button {
   margin-bottom: 0;
 }
 
-/* Sobre section — tighter vertical rhythm */
+/* Normalise section height to match other pages */
 .sobre-section {
-  padding-top: var(--space-2xl);
-  padding-bottom: var(--space-lg);
+  padding-top: var(--space-3xl);
+  padding-bottom: var(--space-3xl);
 }
 
 .sobre-section .section__header {
-  margin-bottom: var(--space-xl);
-}
-
-.sobre__historia + .sobre__historia {
-  margin-top: var(--space-xl);
+  margin-bottom: var(--space-2xl);
 }
 
 .sobre__info-note {
@@ -1101,10 +1102,26 @@ button {
   line-height: 1.6;
 }
 
+/* ---- Two-column layout on desktop ---- */
 @media (min-width: 768px) {
   .sobre__content { padding: 0 var(--space-2xl); }
-  .sobre__cols { flex-direction: row; gap: var(--space-3xl); }
-  .sobre__col { flex: 1; }
+
+  .sobre__historia {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--space-3xl);
+  }
+
+  /* Title and info-note always span full width */
+  .sobre__label,
+  .sobre__info-note {
+    grid-column: 1 / -1;
+  }
+
+  /* Paragraphs sit side by side — no stacking margin needed */
+  .sobre__text + .sobre__text {
+    margin-top: 0;
+  }
 }
 
 @media (min-width: 1024px) {
