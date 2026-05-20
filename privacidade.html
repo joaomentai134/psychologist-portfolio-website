@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Política de Privacidade — Dra. Tânia Ferreira | Psicóloga Clínica</title>
+  <meta name="description" content="Política de Privacidade e tratamento de dados pessoais da Dra. Tânia Ferreira, Psicóloga Clínica, em conformidade com o RGPD." />
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml" />
+  <link rel="alternate icon" href="assets/images/favicon.ico" type="image/x-icon" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <style>
+    /* ── Privacy Page Layout ── */
+    .privacy-page {
+      margin-top: var(--navbar-height);
+      background-color: var(--color-bg);
+      padding: 5rem 0 6rem;
+    }
+
+    .privacy-container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 var(--space-xl);
+    }
+
+    /* ── Page Header ── */
+    .privacy-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .privacy-header__label {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-taupe);
+      margin-bottom: 1.25rem;
+    }
+
+    .privacy-header__title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 300;
+      color: var(--color-dark);
+      line-height: 1.2;
+      margin: 0 0 1.5rem;
+    }
+
+    .privacy-header__divider {
+      width: 40px;
+      height: 2px;
+      background-color: var(--color-taupe);
+      border: none;
+      margin: 0 auto;
+    }
+
+    .privacy-header__date {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: var(--color-gray);
+      letter-spacing: 0.05em;
+      margin-top: 1.25rem;
+    }
+
+    /* ── Section ── */
+    .privacy-section {
+      margin-bottom: 3rem;
+    }
+
+    .privacy-section__number {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-taupe);
+      margin-bottom: 0.6rem;
+    }
+
+    .privacy-section__title {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--color-dark);
+      margin: 0 0 1rem;
+    }
+
+    .privacy-section__body {
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: var(--color-gray);
+      line-height: 1.9;
+    }
+
+    .privacy-section__body p {
+      margin: 0 0 0.85rem;
+    }
+
+    .privacy-section__body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .privacy-section__body ul {
+      margin: 0.5rem 0 0.85rem 1.25rem;
+      padding: 0;
+    }
+
+    .privacy-section__body ul li {
+      margin-bottom: 0.4rem;
+    }
+
+    .privacy-section__body a {
+      color: var(--color-taupe);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .privacy-section__body a:hover {
+      color: var(--color-dark);
+    }
+
+    /* ── Divider between sections ── */
+    .privacy-rule {
+      width: 100%;
+      height: 1px;
+      background-color: rgba(174, 163, 147, 0.25);
+      border: none;
+      margin: 0 0 3rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================================================================
+       NAVBAR
+       ================================================================ -->
+  <header>
+    <nav class="navbar" id="navbar" role="navigation" aria-label="Navegação principal">
+
+      <!-- Logo -->
+      <a href="index.html" class="navbar__logo" aria-label="Tânia Ferreira Psicóloga — Página inicial">
+        <img src="assets/images/Logo_Tania_PT.svg"
+             id="navbar-logo-img"
+             class="navbar__logo-img"
+             alt="Tânia Ferreira Psicóloga"
+             height="48"
+             width="auto" />
+      </a>
+
+      <!-- Desktop navigation -->
+      <nav class="navbar__nav" aria-label="Links de navegação">
+        <ul class="navbar__nav-list" role="list">
+          <li class="navbar__nav-item">
+            <a href="index.html"
+               class="navbar__nav-link"
+               data-pt="PÁGINA INICIAL"
+               data-fr="ACCUEIL">PÁGINA INICIAL</a>
+          </li>
+          <li class="navbar__nav-item">
+            <a href="about.html"
+               class="navbar__nav-link"
+               data-pt="SOBRE MIM"
+               data-fr="À PROPOS">SOBRE MIM</a>
+          </li>
+          <li class="navbar__nav-item">
+            <a href="index.html#servicos"
+               class="navbar__nav-link"
+               data-pt="SERVIÇOS"
+               data-fr="SERVICES">SERVIÇOS</a>
+          </li>
+          <li class="navbar__nav-item">
+            <a href="index.html#feedback"
+               class="navbar__nav-link"
+               data-pt="FEEDBACK"
+               data-fr="AVIS">FEEDBACK</a>
+          </li>
+          <li class="navbar__nav-item">
+            <a href="index.html#especialidades"
+               class="navbar__nav-link"
+               data-pt="ESPECIALIDADES"
+               data-fr="SPÉCIALITÉS">ESPECIALIDADES</a>
+          </li>
+          <li class="navbar__nav-item">
+            <a href="contact.html"
+               class="navbar__nav-link"
+               data-pt="CONTATOS"
+               data-fr="CONTACTS">CONTATOS</a>
+          </li>
+        </ul>
+
+        <!-- Language toggle -->
+        <div class="navbar__lang" role="group" aria-label="Seleção de idioma">
+          <button class="navbar__lang-btn is-active"
+                  id="lang-pt-desktop"
+                  aria-pressed="true"
+                  title="Português">PT</button>
+          <span class="navbar__lang-sep" aria-hidden="true">&nbsp;|&nbsp;</span>
+          <button class="navbar__lang-btn"
+                  id="lang-fr-desktop"
+                  aria-pressed="false"
+                  title="Français">FR</button>
+        </div>
+      </nav>
+
+      <!-- Mobile hamburger -->
+      <button class="navbar__hamburger"
+              id="hamburger-btn"
+              aria-expanded="false"
+              aria-controls="mobile-nav"
+              aria-label="Abrir menu de navegação">
+        <span class="navbar__hamburger-bar"></span>
+        <span class="navbar__hamburger-bar"></span>
+        <span class="navbar__hamburger-bar"></span>
+      </button>
+
+    </nav>
+
+    <!-- Mobile dropdown nav -->
+    <div class="navbar__mobile-nav" id="mobile-nav" role="dialog" aria-modal="false" aria-label="Menu móvel">
+      <ul class="navbar__mobile-nav-list" role="list">
+        <li class="navbar__mobile-nav-item">
+          <a href="index.html"
+             class="navbar__mobile-nav-link"
+             data-pt="PÁGINA INICIAL"
+             data-fr="ACCUEIL">PÁGINA INICIAL</a>
+        </li>
+        <li class="navbar__mobile-nav-item">
+          <a href="about.html"
+             class="navbar__mobile-nav-link"
+             data-pt="SOBRE MIM"
+             data-fr="À PROPOS">SOBRE MIM</a>
+        </li>
+        <li class="navbar__mobile-nav-item">
+          <a href="index.html#servicos"
+             class="navbar__mobile-nav-link"
+             data-pt="SERVIÇOS"
+             data-fr="SERVICES">SERVIÇOS</a>
+        </li>
+        <li class="navbar__mobile-nav-item">
+          <a href="index.html#feedback"
+             class="navbar__mobile-nav-link"
+             data-pt="FEEDBACK"
+             data-fr="AVIS">FEEDBACK</a>
+        </li>
+        <li class="navbar__mobile-nav-item">
+          <a href="index.html#especialidades"
+             class="navbar__mobile-nav-link"
+             data-pt="ESPECIALIDADES"
+             data-fr="SPÉCIALITÉS">ESPECIALIDADES</a>
+        </li>
+        <li class="navbar__mobile-nav-item">
+          <a href="contact.html"
+             class="navbar__mobile-nav-link"
+             data-pt="CONTATOS"
+             data-fr="CONTACTS">CONTATOS</a>
+        </li>
+      </ul>
+
+      <div class="navbar__mobile-lang navbar__lang"
+           role="group"
+           aria-label="Seleção de idioma">
+        <button class="navbar__lang-btn is-active"
+                id="lang-pt-mobile"
+                aria-pressed="true"
+                title="Português">PT</button>
+        <span class="navbar__lang-sep" aria-hidden="true">&nbsp;|&nbsp;</span>
+        <button class="navbar__lang-btn"
+                id="lang-fr-mobile"
+                aria-pressed="false"
+                title="Français">FR</button>
+      </div>
+    </div>
+
+  </header>
+
+  <!-- ================================================================
+       MAIN CONTENT
+       ================================================================ -->
+  <main class="privacy-page">
+    <div class="privacy-container">
+
+      <!-- Page Header -->
+      <header class="privacy-header">
+        <span class="privacy-header__label"
+              data-pt="INFORMAÇÃO LEGAL"
+              data-fr="INFORMATION LÉGALE">INFORMAÇÃO LEGAL</span>
+        <h1 class="privacy-header__title">
+          <span data-pt="Política de Privacidade"
+                data-fr="Politique de Confidentialité">Política de Privacidade</span>
+        </h1>
+        <hr class="privacy-header__divider" />
+        <span class="privacy-header__date"
+              data-pt="Última atualização: maio de 2025"
+              data-fr="Dernière mise à jour : mai 2025">Última atualização: maio de 2025</span>
+      </header>
+
+      <!-- ── Section 1 ── -->
+      <section class="privacy-section" aria-labelledby="sec1-title">
+        <span class="privacy-section__number"
+              data-pt="01"
+              data-fr="01">01</span>
+        <h2 class="privacy-section__title" id="sec1-title">
+          <span data-pt="Responsável pelo Tratamento"
+                data-fr="Responsable du Traitement">Responsável pelo Tratamento</span>
+        </h2>
+        <div class="privacy-section__body">
+          <p>
+            <span data-pt="O responsável pelo tratamento dos seus dados pessoais é:"
+                  data-fr="Le responsable du traitement de vos données personnelles est :">O responsável pelo tratamento dos seus dados pessoais é:</span>
+          </p>
+          <p>
+            <span data-pt="<strong>Dra. Tânia Ferreira</strong> — Psicóloga Clínica"
+                  data-fr="<strong>Dra. Tânia Ferreira</strong> — Psychologue Clinicienne"><strong>Dra. Tânia Ferreira</strong> — Psicóloga Clínica</span><br />
+            <span data-pt="Email: "
+                  data-fr="E-mail : ">Email: </span><a href="mailto:tania_ferreira_psicologa@gmail.com">tania_ferreira_psicologa@gmail.com</a><br />
+            <span data-pt="Telefone: "
+                  data-fr="Téléphone : ">Telefone: </span><a href="tel:+351916684023">+351 916 684 023</a>
+          </p>
+        </div>
+      </section>
+      <hr class="privacy-rule" aria-hidden="true" />
+
+      <!-- ── Section 2 ── -->
+      <section class="privacy-section" aria-labelledby="sec2-title">
+        <span class="privacy-section__number"
+              data-pt="02"
+              data-fr="02">02</span>
+        <h2 class="privacy-section__title" id="sec2-title">
+          <span data-pt="Dados Recolhidos"
+                data-fr="Données Collectées">Dados Recolhidos</span>
+        </h2>
+        <div class="privacy-section__body">
+          <p>
+            <span data-pt="Quando preenche o formulário de contacto neste website, recolhemos os seguintes dados pessoais:"
+                  data-fr="Lorsque vous remplissez le formulaire de contact de ce site, nous collectons les données personnelles suivantes :">Quando preenche o formulário de contacto neste website, recolhemos os seguintes dados pessoais:</span>
+          </p>
+          <ul>
+            <li><span data-pt="Nome completo" data-fr="Nom complet">Nome completo</span></li>
+            <li><span data-pt="Endereço de correio eletrónico" data-fr="Adresse e-mail">Endereço de correio eletrónico</span></li>
+            <li><span data-pt="Número de telefone" data-fr="Numéro de téléphone">Número de telefone</span></li>
+            <li><span data-pt="Mensagem escrita livremente por si" data-fr="Message rédigé librement par vous">Mensagem escrita livremente por si</span></li>
+          </ul>
+          <p>
+            <span data-pt="Não são recolhidos dados de categorias especiais (dados de saúde, dados sensíveis) através deste formulário."
+                  data-fr="Aucune donnée de catégorie particulière (données de santé, données sensibles) n'est collectée via ce formulaire.">Não são recolhidos dados de categorias especiais (dados de saúde, dados sensíveis) através deste formulário.</span>
+          </p>
+        </div>
+      </section>
+      <hr class="privacy-rule" aria-hidden="true" />
+
+      <!-- ── Section 3 ── -->
+      <section class="privacy-section" aria-labelledby="sec3-title">
+        <span class="privacy-section__number"
+              data-pt="03"
+              data-fr="03">03</span>
+        <h2 class="privacy-section__title" id="sec3-title">
+          <span data-pt="Finalidade e Base Legal"
+                data-fr="Finalité et Base Légale">Finalidade e Base Legal</span>
+        </h2>
+        <div class="privacy-section__body">
+          <p>
+            <span data-pt="Os seus dados são tratados com a única finalidade de responder ao seu pedido de contacto e, se aplicável, estabelecer uma relação terapêutica."
+                  data-fr="Vos données sont traitées dans le seul but de répondre à votre demande de contact et, le cas échéant, d'établir une relation thérapeutique.">Os seus dados são tratados com a única finalidade de responder ao seu pedido de contacto e, se aplicável, estabelecer uma relação terapêutica.</span>
+          </p>
+          <p>
+            <span data-pt="A base legal para este tratamento é o seu consentimento livre, específico, informado e inequívoco, prestado no momento do envio do formulário, nos termos do artigo 6.º, n.º 1, alínea a) do Regulamento Geral sobre a Proteção de Dados (RGPD — Regulamento (UE) 2016/679)."
+                  data-fr="La base légale de ce traitement est votre consentement libre, spécifique, éclairé et non ambigu, exprimé au moment de l'envoi du formulaire, conformément à l'article 6, paragraphe 1, point a) du Règlement Général sur la Protection des Données (RGPD — Règlement (UE) 2016/679).">A base legal para este tratamento é o seu consentimento livre, específico, informado e inequívoco, prestado no momento do envio do formulário, nos termos do artigo 6.º, n.º 1, alínea a) do Regulamento Geral sobre a Proteção de Dados (RGPD — Regulamento (UE) 2016/679).</span>
+          </p>
+        </div>
+      </section>
+      <hr class="privacy-rule" aria-hidden="true" />
+
+      <!-- ── Section 4 ── -->
+      <section class="privacy-section" aria-labelledby="sec4-title">
+        <span class="privacy-section__number"
+              data-pt="04"
+              data-fr="04">04</span>
+        <h2 class="privacy-section__title" id="sec4-title">
+          <span data-pt="Conservação dos Dados"
+                data-fr="Conservation des Données">Conservação dos Dados</span>
+        </h2>
+        <div class="privacy-section__body">
+          <p>
+            <span data-pt="Os seus dados pessoais são conservados pelo período estritamente necessário para responder ao seu contacto e, caso se inicie uma relação terapêutica, pelo tempo legalmente exigido para esse efeito."
+                  data-fr="Vos données personnelles sont conservées pendant la durée strictement nécessaire pour répondre à votre demande et, si une relation thérapeutique s'engage, pendant la durée légalement requise à cet effet.">Os seus dados pessoais são conservados pelo período estritamente necessário para responder ao seu contacto e, caso se inicie uma relação terapêutica, pelo tempo legalmente exigido para esse efeito.</span>
+          </p>
+          <p>
+            <span data-pt="Na ausência de resposta ou de início de acompanhamento, os dados submetidos através do formulário de contacto são eliminados ao fim de um máximo de 12 meses."
+                  data-fr="En l'absence de réponse ou de suivi thérapeutique, les données soumises via le formulaire de contact sont supprimées au bout de 12 mois maximum.">Na ausência de resposta ou de início de acompanhamento, os dados submetidos através do formulário de contacto são eliminados ao fim de um máximo de 12 meses.</span>
+          </p>
+        </div>
+      </section>
+      <hr class="privacy-rule" aria-hidden="true" />
+
+      <!-- ── Section 5 ── -->
+      <section class="privacy-section" aria-labelledby="sec5-title">
+        <span class="privacy-section__number"
+              data-pt="05"
+              data-fr="05">05</span>
+        <h2 class="privacy-section__title" id="sec5-title">
+          <span data-pt="Destinatários e Subcontratantes"
+                data-fr="Destinataires et Sous-traitants">Destinatários e Subcontratantes</span>
+        </h2>
+        <div class="privacy-section__body">
+          <p>
+            <span data-pt="Os seus dados não são vendidos, cedidos nem partilhados com terceiros para fins comerciais ou de marketing."
+                  data-fr="Vos données ne sont ni vendues, ni cédées, ni partagées avec des tiers à des fins commerciales ou marketing.">Os seus dados não são vendidos, cedidos nem partilhados com terceiros para fins comerciais ou de marketing.</span>
+          </p>
+          <p>
+            <span data-pt="O formulário de contacto deste website utiliza o serviço Formspree (Formspree, Inc., EUA) para o processamento e encaminhamento seguro das mensagens. Esta transferência internacional de dados é realizada ao abrigo de garantias adequadas, designadamente as Cláusulas Contratuais Tipo aprovadas pela Comissão Europeia, em conformidade com o artigo 46.º do RGPD."
+                  data-fr="Le formulaire de contact de ce site utilise le service Formspree (Formspree, Inc., États-Unis) pour le traitement et l'acheminement sécurisé des messages. Ce transfert international de données est effectué sur la base de garanties appropriées, notamment les Clauses Contractuelles Types approuvées par la Commission européenne, conformément à l'article 46 du RGPD.">O formulário de contacto deste website utiliza o serviço Formspree (Formspree, Inc., EUA) para o processamento e encaminhamento seguro das mensagens. Esta transferência internacional de dados é realizada ao abrigo de garantias adequadas, designadamente as Cláusulas Contratuais Tipo aprovadas pela Comissão Europeia, em conformidade com o artigo 46.º do RGPD.</span>
+          </p>
+          <p>
+            <span data-pt="Mais informações sobre as práticas de privacidade da Formspree em: "
+                  data-fr="Plus d'informations sur les pratiques de confidentialité de Formspree : ">Mais informações sobre as práticas de privacidade da Formspree em: </span><a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener noreferrer">formspree.io/legal/privacy-policy</a>.
+          </p>
+        </div>
+      </section>
+      <hr class="privacy-rule" aria-hidden="true" />
+
+      <!-- ── Section 6 ── -->
+      <section class="privacy-section" aria-labelledby="sec6-title">
+        <span class="privacy-section__number"
+              data-pt="06"
+              data-fr="06">06</span>
+        <h2 class="privacy-section__title" id="sec6-title">
+          <span data-pt="Os Seus Direitos"
+                data-fr="Vos Droits">Os Seus Direitos</span>
+        </h2>
+        <div class="privacy-section__body">
+          <p>
+            <span data-pt="Ao abrigo do RGPD, tem o direito de:"
+                  data-fr="En vertu du RGPD, vous avez le droit de :">Ao abrigo do RGPD, tem o direito de:</span>
+          </p>
+          <ul>
+            <li><span data-pt="<strong>Acesso</strong> — obter confirmação sobre se os seus dados são tratados e aceder aos mesmos" data-fr="<strong>Accès</strong> — obtenir la confirmation que vos données sont traitées et y accéder"><strong>Acesso</strong> — obter confirmação sobre se os seus dados são tratados e aceder aos mesmos</span></li>
+            <li><span data-pt="<strong>Retificação</strong> — corrigir dados inexatos ou incompletos" data-fr="<strong>Rectification</strong> — corriger des données inexactes ou incomplètes"><strong>Retificação</strong> — corrigir dados inexatos ou incompletos</span></li>
+            <li><span data-pt="<strong>Apagamento</strong> — solicitar a eliminação dos seus dados pessoais («direito ao esquecimento»)" data-fr="<strong>Effacement</strong> — demander la suppression de vos données personnelles («droit à l'oubli»)"><strong>Apagamento</strong> — solicitar a eliminação dos seus dados pessoais («direito ao esquecimento»)</span></li>
+            <li><span data-pt="<strong>Limitação</strong> — restringir o tratamento dos seus dados em determinadas circunstâncias" data-fr="<strong>Limitation</strong> — restreindre le traitement de vos données dans certaines circonstances"><strong>Limitação</strong> — restringir o tratamento dos seus dados em determinadas circunstâncias</span></li>
+            <li><span data-pt="<strong>Portabilidade</strong> — receber os seus dados num formato estruturado e legível por máquina" data-fr="<strong>Portabilité</strong> — recevoir vos données dans un format structuré et lisible par machine"><strong>Portabilidade</strong> — receber os seus dados num formato estruturado e legível por máquina</span></li>
+            <li><span data-pt="<strong>Oposição</strong> — opor-se ao tratamento dos seus dados em determinadas situações" data-fr="<strong>Opposition</strong> — vous opposer au traitement de vos données dans certaines situations"><strong>Oposição</strong> — opor-se ao tratamento dos seus dados em determinadas situações</span></li>
+            <li><span data-pt="<strong>Retirar o consentimento</strong> — a qualquer momento, sem afetar a licitude do tratamento anterior" data-fr="<strong>Retrait du consentement</strong> — à tout moment, sans affecter la licéité du traitement antérieur"><strong>Retirar o consentimento</strong> — a qualquer momento, sem afetar a licitude do tratamento anterior</span></li>
+          </ul>
+          <p>
+            <span data-pt="Para exercer qualquer um destes direitos, contacte-nos por email para "
+                  data-fr="Pour exercer l'un de ces droits, contactez-nous par e-mail à ">Para exercer qualquer um destes direitos, contacte-nos por email para </span><a href="mailto:tania_ferreira_psicologa@gmail.com">tania_ferreira_psicologa@gmail.com</a>. <span data-pt="Responderemos ao seu pedido no prazo máximo de 30 dias." data-fr="Nous répondrons à votre demande dans un délai maximum de 30 jours.">Responderemos ao seu pedido no prazo máximo de 30 dias.</span>
+          </p>
+        </div>
+      </section>
+      <hr class="privacy-rule" aria-hidden="true" />
+
+      <!-- ── Section 7 ── -->
+      <section class="privacy-section" aria-labelledby="sec7-title">
+        <span class="privacy-section__number"
+              data-pt="07"
+              data-fr="07">07</span>
+        <h2 class="privacy-section__title" id="sec7-title">
+          <span data-pt="Segurança dos Dados"
+                data-fr="Sécurité des Données">Segurança dos Dados</span>
+        </h2>
+        <div class="privacy-section__body">
+          <p>
+            <span data-pt="Adotamos medidas técnicas e organizativas adequadas para proteger os seus dados pessoais contra o acesso não autorizado, a divulgação, a alteração ou a destruição. A transmissão dos dados do formulário de contacto é realizada de forma segura através de ligação encriptada (HTTPS)."
+                  data-fr="Nous mettons en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos données personnelles contre tout accès non autorisé, divulgation, modification ou destruction. La transmission des données du formulaire de contact s'effectue de manière sécurisée via une connexion chiffrée (HTTPS).">Adotamos medidas técnicas e organizativas adequadas para proteger os seus dados pessoais contra o acesso não autorizado, a divulgação, a alteração ou a destruição. A transmissão dos dados do formulário de contacto é realizada de forma segura através de ligação encriptada (HTTPS).</span>
+          </p>
+        </div>
+      </section>
+      <hr class="privacy-rule" aria-hidden="true" />
+
+      <!-- ── Section 8 ── -->
+      <section class="privacy-section" aria-labelledby="sec8-title">
+        <span class="privacy-section__number"
+              data-pt="08"
+              data-fr="08">08</span>
+        <h2 class="privacy-section__title" id="sec8-title">
+          <span data-pt="Cookies"
+                data-fr="Cookies">Cookies</span>
+        </h2>
+        <div class="privacy-section__body">
+          <p>
+            <span data-pt="Este website não utiliza cookies de rastreamento, ferramentas de análise de comportamento, publicidade comportamental ou quaisquer tecnologias de seguimento de terceiros. Não é recolhida qualquer informação sobre a sua navegação para fins estatísticos ou comerciais."
+                  data-fr="Ce site n'utilise pas de cookies de suivi, d'outils d'analyse comportementale, de publicité comportementale ni aucune technologie de pistage tierce. Aucune information sur votre navigation n'est collectée à des fins statistiques ou commerciales.">Este website não utiliza cookies de rastreamento, ferramentas de análise de comportamento, publicidade comportamental ou quaisquer tecnologias de seguimento de terceiros. Não é recolhida qualquer informação sobre a sua navegação para fins estatísticos ou comerciais.</span>
+          </p>
+        </div>
+      </section>
+      <hr class="privacy-rule" aria-hidden="true" />
+
+      <!-- ── Section 9 ── -->
+      <section class="privacy-section" aria-labelledby="sec9-title">
+        <span class="privacy-section__number"
+              data-pt="09"
+              data-fr="09">09</span>
+        <h2 class="privacy-section__title" id="sec9-title">
+          <span data-pt="Contacto e Reclamações"
+                data-fr="Contact et Réclamations">Contacto e Reclamações</span>
+        </h2>
+        <div class="privacy-section__body">
+          <p>
+            <span data-pt="Para qualquer questão relativa ao tratamento dos seus dados pessoais, pode contactar-nos em:"
+                  data-fr="Pour toute question relative au traitement de vos données personnelles, vous pouvez nous contacter à :">Para qualquer questão relativa ao tratamento dos seus dados pessoais, pode contactar-nos em:</span>
+            <br /><a href="mailto:tania_ferreira_psicologa@gmail.com">tania_ferreira_psicologa@gmail.com</a>
+          </p>
+          <p>
+            <span data-pt="Tem ainda o direito de apresentar reclamação junto da autoridade de controlo competente em Portugal, a Comissão Nacional de Proteção de Dados (CNPD):"
+                  data-fr="Vous avez également le droit d'introduire une réclamation auprès de l'autorité de contrôle compétente au Portugal, la Commission Nationale de Protection des Données (CNPD) :">Tem ainda o direito de apresentar reclamação junto da autoridade de controlo competente em Portugal, a Comissão Nacional de Proteção de Dados (CNPD):</span>
+            <br /><a href="https://www.cnpd.pt" target="_blank" rel="noopener noreferrer">www.cnpd.pt</a>
+          </p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ================================================================
+       FOOTER
+       ================================================================ -->
+  <footer class="site-footer" id="footer">
+    <div class="site-footer__links">
+      <a href="mailto:tania_ferreira_psicologa@gmail.com" class="site-footer__link">tania_ferreira_psicologa@gmail.com</a>
+      <span class="site-footer__sep" aria-hidden="true">·</span>
+      <a href="tel:+351916684023" class="site-footer__link">+351 916 684 023</a>
+      <span class="site-footer__sep" aria-hidden="true">·</span>
+      <a href="privacidade.html"
+         class="site-footer__link"
+         data-pt="Política de Privacidade"
+         data-fr="Politique de Confidentialité">Política de Privacidade</a>
+    </div>
+    <div class="site-footer__bottom">
+      <p data-pt="© 2025 Tânia Ferreira. Todos os direitos reservados."
+         data-fr="© 2025 Tânia Ferreira. Tous droits réservés.">© 2025 Tânia Ferreira. Todos os direitos reservados.</p>
+      <p class="site-footer__credit">Website desenvolvido por <a href="https://github.com/joaomentai134" target="_blank" rel="noopener">João Moura</a></p>
+    </div>
+  </footer>
+
+  <!-- ================================================================
+       WHATSAPP FLOATING BUTTON
+       ================================================================ -->
+  <a class="whatsapp-btn"
+     href="https://wa.me/351916684023"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Contactar via WhatsApp — +351 916 684 023">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" focusable="false">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+    </svg>
+    <span class="whatsapp-btn__tooltip"
+          data-pt="Entre já em contacto!"
+          data-fr="Contactez-moi dès maintenant!">Entre já em contacto!</span>
+  </a>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js" defer></script>
+
+</body>
+</html>
