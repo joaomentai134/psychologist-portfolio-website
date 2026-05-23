@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /obrigado.html
+
+Sitemap: https://www.taniapcferreira.com/sitemap.xml
