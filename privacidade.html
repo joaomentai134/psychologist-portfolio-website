@@ -78,6 +78,38 @@
       margin-top: 1.25rem;
     }
 
+    /* ── Back link ── */
+    .privacy-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-taupe);
+      text-decoration: none;
+      margin-bottom: 3rem;
+      transition: color 0.2s ease, gap 0.2s ease;
+    }
+
+    .privacy-back:hover {
+      color: var(--color-dark);
+      gap: 0.75rem;
+    }
+
+    .privacy-back svg {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+    }
+
+    .privacy-back:hover svg {
+      transform: translateX(-3px);
+    }
+
     /* ── Section ── */
     .privacy-section {
       margin-bottom: 3rem;
@@ -299,6 +331,15 @@
        ================================================================ -->
   <main class="privacy-page">
     <div class="privacy-container">
+
+      <!-- Back link -->
+      <a href="index.html" class="privacy-back" aria-label="Voltar à página inicial">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        <span data-pt="PÁGINA INICIAL" data-fr="ACCUEIL">PÁGINA INICIAL</span>
+      </a>
 
       <!-- Page Header -->
       <header class="privacy-header">
