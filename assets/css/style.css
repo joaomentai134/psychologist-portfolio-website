@@ -1185,14 +1185,14 @@ button {
 .sobre__toggle-wrap {
   display: flex;
   justify-content: center;
-  margin-top: var(--space-lg);
+  margin-top: var(--space-2xl);
   margin-bottom: 0;
 }
 
 /* Normalise section height to match other pages */
 .sobre-section {
   padding-top: 5.5rem;
-  padding-bottom: 5.5rem;
+  padding-bottom: 4rem;
 }
 
 .sobre-section .section__header {
@@ -1241,7 +1241,7 @@ button {
    14b. CTA SECTION — Próximo passo
    ------------------------------------------------------------ */
 .cta-section {
-  background-color: var(--color-dark);
+  background-color: var(--color-taupe);
   position: relative;
   overflow: hidden;
   padding: 6rem var(--space-lg);
@@ -1252,14 +1252,15 @@ button {
   min-height: 580px;
 }
 
-/* Subtle flower pattern overlay */
+/* Flower pattern overlay */
 .cta-section__pattern {
   position: absolute;
   inset: 0;
   background-image: url('../images/flower_pattern_colored.svg');
   background-size: 520px auto;
   background-repeat: repeat;
-  opacity: 0.05;
+  opacity: 0.40;
+  mix-blend-mode: multiply;
   z-index: 0;
 }
 
@@ -1276,11 +1277,11 @@ button {
 /* Label — "PRÓXIMO PASSO" */
 .cta-section__label {
   font-family: var(--font-sans);
-  font-size: 0.72rem;
-  font-weight: 500;
+  font-size: 0.8rem;
+  font-weight: 700;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--color-taupe);
+  color: var(--color-dark);
 }
 
 /* Serif italic headline — two lines */
@@ -1304,17 +1305,30 @@ button {
 .cta-section__line2 {
   display: block;
   font-size: clamp(2.8rem, 6vw, 4.4rem);
-  color: var(--color-taupe);
+  color: var(--color-dark);
 }
 
-/* Thin divider */
-.cta-section__divider {
-  width: 36px;
-  height: 1px;
-  background-color: var(--color-taupe);
-  border: none;
-  margin: 0;
-  opacity: 0.5;
+/* Arrow — same visual language as hero scroll indicator */
+.cta-section__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  opacity: 0.75;
+  text-decoration: none;
+  transition: opacity var(--transition-base);
+  animation: cta-bob 2s ease-in-out infinite;
+  margin-top: var(--space-sm);
+}
+
+.cta-section__arrow:hover {
+  opacity: 1;
+}
+
+.cta-section__chevron {
+  width: 65px;
+  height: 65px;
+  filter: drop-shadow(0 3px 10px rgba(57, 55, 59, 0.50));
 }
 
 /* Body text */
@@ -1322,15 +1336,14 @@ button {
   font-family: var(--font-sans);
   font-size: 0.925rem;
   font-weight: 400;
-  color: var(--color-taupe);
+  color: var(--color-dark);
   line-height: 1.9;
   max-width: 460px;
-  opacity: 0.85;
 }
 
-/* CTA button — inherit hero__cta styles, small top margin */
-.cta-section .hero__cta {
-  margin-top: var(--space-sm);
+@keyframes cta-bob {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(7px); }
 }
 
 /* ------------------------------------------------------------
