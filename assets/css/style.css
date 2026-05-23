@@ -890,8 +890,8 @@ button {
   background: none;
   border: none;
   box-shadow: none;
-  width: 2.75rem;  /* 44px touch target */
-  height: 2.75rem; /* 44px touch target */
+  width: 3.5rem;
+  height: 3.5rem;
   opacity: 1;
   top: 40%;
 }
@@ -906,8 +906,8 @@ button {
 }
 
 .carousel .splide__arrow svg {
-  width: 1.2rem;
-  height: 1.2rem;
+  width: 1.6rem;
+  height: 1.6rem;
   fill: currentColor;
 }
 
@@ -1213,23 +1213,34 @@ button {
 
 /* ---- Two-column layout on desktop ---- */
 @media (min-width: 768px) {
-  .sobre__content { padding: 0 var(--space-2xl); }
-
-  .sobre__historia {
+  /* História and Formação sit side by side */
+  .sobre__content {
+    padding: 0 var(--space-2xl);
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: var(--space-3xl);
+    align-items: start;
   }
 
-  /* Title and info-note always span full width */
-  .sobre__label,
-  .sobre__info-note {
-    grid-column: 1 / -1;
+  /* Each block is just a column — paragraphs stack vertically */
+  .sobre__historia {
+    display: block;
   }
 
-  /* Paragraphs sit side by side — no stacking margin needed */
-  .sobre__text + .sobre__text {
+  /* No extra top margin between the two side-by-side blocks */
+  .sobre__historia + .sobre__historia {
     margin-top: 0;
+  }
+
+  /* Paragraphs continue to stack with spacing */
+  .sobre__text + .sobre__text {
+    margin-top: var(--space-lg);
+  }
+
+  /* Experiência (extra) and toggle span both columns — full width */
+  .sobre__extra,
+  .sobre__toggle-wrap {
+    grid-column: 1 / -1;
   }
 }
 
