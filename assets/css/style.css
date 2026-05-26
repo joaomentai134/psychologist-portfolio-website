@@ -700,6 +700,17 @@ button {
 }
 
 /* ------------------------------------------------------------
+   8b. MOBILE ONLY — hero quote 3-line split (max-width: 767px)
+   ------------------------------------------------------------ */
+@media (max-width: 767px) {
+  /* Row 1 splits into 2 lines; row 2 stays as one line */
+  .hero__quote-line1,
+  .hero__quote-line2 {
+    display: block;
+  }
+}
+
+/* ------------------------------------------------------------
    9. RESPONSIVE — TABLET (min-width: 768px)
    ------------------------------------------------------------ */
 @media (min-width: 768px) {
@@ -769,7 +780,7 @@ button {
     left: auto;
     bottom: auto;
     transform: none;
-    margin-left: 18%;
+    margin-left: 16%;
     margin-top: var(--space-2xl);
     background-color: transparent;
     border-radius: 0;
