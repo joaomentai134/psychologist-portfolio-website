@@ -457,15 +457,35 @@ button {
   opacity: 0.5;
 }
 
-.hero__quote-line1 {
+/* Mobile/tablet: each row is a block, lines inside flow inline */
+.hero__quote-row {
   display: block;
-  font-size: clamp(1.25rem, 5vw, 1.7rem); /* compact on mobile; restored at 1024px */
+  line-height: 1.25;
+}
+
+.hero__quote-line1 {
+  display: inline;
+  font-size: clamp(1.25rem, 5vw, 1.7rem);
   font-weight: 400;
   font-style: italic;
 }
 
 .hero__quote-line2 {
-  display: block;
+  display: inline;
+  font-size: clamp(1.25rem, 5vw, 1.7rem);
+  font-weight: 700;
+  font-style: italic;
+}
+
+.hero__quote-line3 {
+  display: inline;
+  font-size: clamp(1.25rem, 5vw, 1.7rem);
+  font-weight: 400;
+  font-style: italic;
+}
+
+.hero__quote-line4 {
+  display: inline;
   font-size: clamp(1.25rem, 5vw, 1.7rem);
   font-weight: 700;
   font-style: italic;
@@ -473,7 +493,9 @@ button {
 
 /* ---- French hero quote — text is ~30% longer, scale down ---- */
 .lang-fr .hero__quote-line1,
-.lang-fr .hero__quote-line2 {
+.lang-fr .hero__quote-line2,
+.lang-fr .hero__quote-line3,
+.lang-fr .hero__quote-line4 {
   font-size: clamp(1.4rem, 5.0vw, 2.4rem);
 }
 
@@ -686,7 +708,7 @@ button {
   }
 
   .hero__content {
-    max-width: 400px;
+    max-width: 540px;
     padding: var(--space-lg) var(--space-xl);
   }
 }
@@ -713,9 +735,9 @@ button {
     gap: 0.85rem;
   }
 
-  /* 1024–1279px: still in card mode, just wider card + restore font sizes */
+  /* 1024–1199px: still in card mode, just wider card + restore font sizes */
   .hero__content {
-    max-width: 460px;
+    max-width: 580px;
     padding: var(--space-xl) var(--space-2xl);
   }
 
@@ -725,32 +747,46 @@ button {
   }
 
   .hero__quote-line1,
-  .hero__quote-line2 {
+  .hero__quote-line2,
+  .hero__quote-line3,
+  .hero__quote-line4 {
     font-size: clamp(1.6rem, 3.5vw, 2.2rem);
   }
 }
 
 /* ------------------------------------------------------------
-   11. RESPONSIVE — WIDE (min-width: 1280px)
+   11. RESPONSIVE — WIDE (min-width: 1200px)
    ------------------------------------------------------------ */
-@media (min-width: 1280px) {
+@media (min-width: 1200px) {
   .hero__content {
     /* 1280px+: exit card mode, restore original left-side layout */
     position: relative;
     align-items: flex-start;
     text-align: left;
     width: auto;
-    max-width: 50%;
+    max-width: 45%;
     padding: 0 var(--space-2xl);
     left: auto;
     bottom: auto;
     transform: none;
-    margin-left: 14%;
+    margin-left: 18%;
     margin-top: var(--space-2xl);
     background-color: transparent;
     border-radius: 0;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
+  }
+
+  /* Desktop: rows become layout-transparent, each line is its own block */
+  .hero__quote-row {
+    display: contents;
+  }
+
+  .hero__quote-line1,
+  .hero__quote-line2,
+  .hero__quote-line3,
+  .hero__quote-line4 {
+    display: block;
   }
 
   /* Restore taupe colours for desktop */
@@ -776,12 +812,16 @@ button {
   }
 
   .hero__quote-line1,
-  .hero__quote-line2 {
-    font-size: clamp(2rem, 7vw, 3.2rem);
+  .hero__quote-line2,
+  .hero__quote-line3,
+  .hero__quote-line4 {
+    font-size: clamp(1.6rem, 3vw, 2.6rem);
   }
 
   .lang-fr .hero__quote-line1,
-  .lang-fr .hero__quote-line2 {
+  .lang-fr .hero__quote-line2,
+  .lang-fr .hero__quote-line3,
+  .lang-fr .hero__quote-line4 {
     font-size: clamp(1.4rem, 5vw, 2.4rem);
   }
 }
