@@ -1462,6 +1462,21 @@ button {
   margin-top: calc(var(--space-sm) - var(--space-lg));
 }
 
+.contatos__country-code {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--color-taupe);
+  background-color: transparent;
+  border: 1px solid var(--color-taupe);
+  border-radius: 3px;
+  padding: 0.05em 0.35em;
+  vertical-align: middle;
+  margin-right: 0.3em;
+}
+
 .contatos__social {
   display: flex;
   gap: var(--space-sm);
