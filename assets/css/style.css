@@ -156,7 +156,7 @@ button {
 }
 
 .navbar__logo-img {
-  height: 170px;
+  height: 240px;
   width: auto;
   display: block;
   transition: height var(--transition-base);
