@@ -4,7 +4,7 @@ Bilingual (PT/FR) portfolio website built for a licensed clinical psychologist o
 
 ## Live Demo
 
-[View Website](https://www.dominio.com)
+[View Website](https://taniapcferreira.com/)
 
 ## Features
 
