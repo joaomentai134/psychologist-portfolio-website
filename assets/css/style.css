@@ -33,8 +33,8 @@
   --space-3xl: 4rem;
 
   /* Navbar */
-  --navbar-height:          80px;
-  --navbar-height-scrolled: 62px;
+  --navbar-height:          95px;
+  --navbar-height-scrolled: 72px;
 
   /* Transitions */
   --transition-fast:   150ms ease;
@@ -131,7 +131,7 @@ button {
   display: flex;
   align-items: center;
   overflow: visible;
-  padding: 0 var(--space-lg) 0 7px;
+  padding: 0 var(--space-lg) 0 20px;
   transition:
     height var(--transition-base),
     background-color var(--transition-slow),
@@ -156,7 +156,7 @@ button {
 }
 
 .navbar__logo-img {
-  height: 240px;
+  height: 85px;
   width: auto;
   display: block;
   transition: height var(--transition-base);
@@ -1475,6 +1475,11 @@ button {
   padding: 0.05em 0.35em;
   vertical-align: middle;
   margin-right: 0.3em;
+}
+
+.site-footer .contatos__country-code {
+  font-size: 0.5rem;
+  padding: 0.04em 0.28em;
 }
 
 .contatos__social {
