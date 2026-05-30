@@ -1,37 +1,37 @@
-# 🧠 Psychologist Portfolio Website
+# Psychologist Portfolio Website
 
-A clean, bilingual (PT/FR) landing page built for a
-licensed psychologist operating between Portugal and Luxembourg.
+Bilingual (PT/FR) portfolio website built for a licensed clinical psychologist operating between Portugal and Luxembourg. Designed with a focus on simplicity, accessibility, and professional aesthetic.
 
-## 🌐 Live Demo
+## Live Demo
 
-[View Website](https://www.dominio.com) UPDATE!!
+[View Website](https://www.dominio.com)
 
-## 📋 Features
+## Features
 
-- Responsive design (mobile-first)
-- Bilingual content (Portuguese / French)
-- Contact form with email integration
-- Clean and minimal UI
+- Mobile-first responsive design
+- Bilingual content switching (Portuguese / French)
+- Contact form with Formspree integration
+- GDPR-compliant privacy policy
+- Accessible markup (ARIA, semantic HTML)
+- No frameworks, no dependencies
 
-## 🛠️ Built With
+## Built With
 
 - HTML5
 - CSS3
 - JavaScript (Vanilla)
 - Deployed on Vercel
 
-## 📁 Project Structure
+## Project Structure
 
-\`\`\`
-/assets/css → Stylesheets
-/assets/js → Scripts
-/assets/images → Media assets
-\`\`\`
+```
+/assets/css       Stylesheets
+/assets/js        Scripts
+/assets/images    Media assets
+```
 
-## 👨‍💻 Author
+## Author
 
-**Joao-Mentai**  
+**João Moura**  
 Full Stack Developer  
-[LinkedIn](www.linkedin.com/in/joaomentai134)
-[GitHub](https://github.com/joaomentai134)
+[LinkedIn](https://www.linkedin.com/in/joaomentai134) · [GitHub](https://github.com/joaomentai134)
