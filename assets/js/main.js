@@ -123,7 +123,18 @@
     translatableEls.forEach(function (el) {
       const text = isFR ? el.dataset.fr : el.dataset.pt;
       if (text !== undefined) {
-        el.textContent = text;
+        if (el.hasAttribute('placeholder')) {
+          el.setAttribute('placeholder', text);
+        } else if (el.children.length === 0) {
+          el.textContent = text;
+        } else {
+          for (var i = 0; i < el.childNodes.length; i++) {
+            if (el.childNodes[i].nodeType === 3) {
+              el.childNodes[i].nodeValue = text;
+              break;
+            }
+          }
+        }
       }
     });
 
