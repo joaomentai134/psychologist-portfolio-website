@@ -8,17 +8,15 @@
   <meta name="description" content="Mensagem recebida. A Dra. Tânia Ferreira entrará em contacto consigo em breve." />
   <meta name="robots" content="noindex, nofollow" />
 
-  <!-- Favicon -->
   <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml" />
   <link rel="alternate icon" href="assets/images/favicon.ico" type="image/x-icon" />
 
-  <!-- Google Fonts -->
+  <!-- preconnect cuts the font load time by opening the TCP handshake early -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet" />
 
-  <!-- Stylesheet -->
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 
@@ -30,7 +28,6 @@
   <header>
     <nav class="navbar" id="navbar" role="navigation" aria-label="Navegação principal">
 
-      <!-- Logo -->
       <a href="index.html" class="navbar__logo" aria-label="Tânia Ferreira Psicóloga — Página inicial">
         <img src="assets/images/Logo_Tania_PT.svg"
              id="navbar-logo-img"
@@ -40,7 +37,6 @@
              width="auto" />
       </a>
 
-      <!-- Desktop navigation -->
       <nav class="navbar__nav" aria-label="Links de navegação">
         <ul class="navbar__nav-list" role="list">
           <li class="navbar__nav-item">
@@ -81,7 +77,6 @@
           </li>
         </ul>
 
-        <!-- Language toggle -->
         <div class="navbar__lang" role="group" aria-label="Seleção de idioma">
           <button class="navbar__lang-btn is-active"
                   id="lang-pt-desktop"
@@ -95,7 +90,6 @@
         </div>
       </nav>
 
-      <!-- Mobile hamburger -->
       <button class="navbar__hamburger"
               id="hamburger-btn"
               aria-expanded="false"
@@ -108,7 +102,7 @@
 
     </nav>
 
-    <!-- Mobile dropdown nav -->
+    <!-- outside .navbar so it can drop below without being clipped by overflow:visible -->
     <div class="navbar__mobile-nav" id="mobile-nav" role="dialog" aria-modal="false" aria-label="Menu móvel">
       <ul class="navbar__mobile-nav-list" role="list">
         <li class="navbar__mobile-nav-item">
@@ -171,32 +165,25 @@
        ================================================================ -->
   <main style="margin-top: var(--navbar-height); min-height: calc(100vh - var(--navbar-height)); display: flex; align-items: center; justify-content: center; background-color: var(--color-bg); position: relative; overflow: hidden;">
 
-    <!-- Flower pattern background -->
     <div style="position: absolute; inset: 0; background-image: url('assets/images/flower_pattern_colored.svg'); background-size: 600px auto; background-repeat: repeat; opacity: 0.35; z-index: 0;" aria-hidden="true"></div>
 
-    <!-- Card -->
     <div style="position: relative; z-index: 1; max-width: 600px; width: 90%; background-color: var(--color-white); padding: 4rem 3rem; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.5rem;">
 
-      <!-- Checkmark icon -->
       <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-taupe);" aria-hidden="true">
         <circle cx="24" cy="24" r="20"/>
         <polyline points="14,24 21,31 34,17"/>
       </svg>
 
-      <!-- Heading -->
       <h1 style="font-family: var(--font-sans); font-weight: 800; font-size: clamp(1.4rem, 4vw, 2rem); letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-taupe); line-height: 1.2;">
         <span data-pt="OBRIGADO PELO CONTACTO" data-fr="MERCI POUR VOTRE MESSAGE">OBRIGADO PELO CONTACTO</span>
       </h1>
 
-      <!-- Divider -->
       <hr style="width: 40px; height: 2px; background-color: var(--color-dark); border: none;" />
 
-      <!-- Message -->
       <p style="font-family: var(--font-sans); font-size: 0.875rem; font-weight: 400; color: var(--color-gray); line-height: 1.85; max-width: 420px;">
         <span data-pt="A sua mensagem foi recebida. A Dra. Tânia Ferreira entrará em contacto consigo o mais brevemente possível." data-fr="Votre message a bien été reçu. La Dr. Tânia Ferreira vous contactera dans les meilleurs délais.">A sua mensagem foi recebida. A Dra. Tânia Ferreira entrará em contacto consigo o mais brevemente possível.</span>
       </p>
 
-      <!-- Back button -->
       <a href="index.html"
          class="section-btn"
          style="margin-top: 0.5rem;"
@@ -246,7 +233,9 @@
           data-fr="Contactez-moi dès maintenant!">Entre já em contacto!</span>
   </a>
 
-  <!-- Scripts -->
+  <!-- ================================================================
+       SCRIPTS
+       ================================================================ -->
   <script src="assets/js/main.js" defer></script>
 
 </body>

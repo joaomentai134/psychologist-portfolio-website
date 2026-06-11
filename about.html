@@ -4,33 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Primary Meta Tags -->
   <title>Sobre Mim — Tânia Ferreira | Psicóloga</title>
   <meta name="description"
         content="Conheça a Dra. Tânia Ferreira — Psicóloga Clínica com mestrado pelo ISCTE, especializada em TCC. Consultas em Português, Francês, Inglês e Espanhol." />
   <meta name="author" content="Tânia Ferreira" />
 
-  <!-- Open Graph / Social -->
   <meta property="og:type"        content="website" />
   <meta property="og:title"       content="Sobre Mim — Dra. Tânia Ferreira | Psicóloga Clínica" />
   <meta property="og:description" content="Psicóloga portuguesa a trabalhar entre Portugal e Luxemburgo. Especializada em TCC." />
   <meta property="og:locale"      content="pt_PT" />
   <meta property="og:url"         content="https://www.taniapcferreira.com/about.html" />
 
-  <!-- Favicon placeholder -->
   <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml" />
   <link rel="alternate icon" href="assets/images/favicon.ico" type="image/x-icon" />
 
-  <!-- Google Fonts: Cormorant Garamond + Montserrat -->
+  <!-- preconnect cuts the font load time by opening the TCP handshake early -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet" />
 
-  <!-- Splide CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" />
-
-  <!-- Stylesheet -->
   <link rel="stylesheet" href="assets/css/style.css" />
   <script defer src="/_vercel/insights/script.js"></script>
   <link rel="canonical" href="https://taniapcferreira.com/about.html" />
@@ -44,7 +38,6 @@
   <header>
     <nav class="navbar" id="navbar" role="navigation" aria-label="Navegação principal">
 
-      <!-- Logo -->
       <a href="index.html#inicio" class="navbar__logo" aria-label="Tânia Ferreira Psicóloga — Página inicial">
         <img src="assets/images/Logo_Tania_PT.svg"
              id="navbar-logo-img"
@@ -54,7 +47,6 @@
              width="auto" />
       </a>
 
-      <!-- Desktop navigation -->
       <nav class="navbar__nav" aria-label="Links de navegação">
         <ul class="navbar__nav-list" role="list">
           <li class="navbar__nav-item">
@@ -96,7 +88,6 @@
           </li>
         </ul>
 
-        <!-- Language toggle -->
         <div class="navbar__lang" role="group" aria-label="Seleção de idioma">
           <button class="navbar__lang-btn is-active"
                   id="lang-pt-desktop"
@@ -110,7 +101,6 @@
         </div>
       </nav>
 
-      <!-- Mobile hamburger -->
       <button class="navbar__hamburger"
               id="hamburger-btn"
               aria-expanded="false"
@@ -121,9 +111,9 @@
         <span class="navbar__hamburger-bar"></span>
       </button>
 
-    </nav><!-- /.navbar -->
+    </nav>
 
-    <!-- Mobile dropdown nav -->
+    <!-- outside .navbar so it can drop below without being clipped by overflow:visible -->
     <div class="navbar__mobile-nav" id="mobile-nav" role="dialog" aria-modal="false" aria-label="Menu móvel">
       <ul class="navbar__mobile-nav-list" role="list">
         <li class="navbar__mobile-nav-item">
@@ -165,7 +155,6 @@
         </li>
       </ul>
 
-      <!-- Language toggle (mobile) -->
       <div class="navbar__mobile-lang navbar__lang"
            role="group"
            aria-label="Seleção de idioma">
@@ -179,7 +168,7 @@
                 aria-pressed="false"
                 title="Français">FR</button>
       </div>
-    </div><!-- /#mobile-nav -->
+    </div>
 
   </header>
 
@@ -188,9 +177,6 @@
        ================================================================ -->
   <main id="main-content" style="margin-top: var(--navbar-height); min-height: calc(100vh - var(--navbar-height));">
 
-    <!-- ============================================================
-         SOBRE MIM — MAIN PAGE CONTENT
-         ============================================================ -->
     <section class="section sobre-section" aria-label="Sobre mim">
       <div class="section__header">
         <h2 class="section__title" data-pt="SOBRE MIM" data-fr="À PROPOS">SOBRE MIM</h2>
@@ -198,7 +184,6 @@
       </div>
       <div class="sobre__content">
 
-        <!-- HISTÓRIA — always visible -->
         <div class="sobre__historia">
           <h3 class="sobre__label" data-pt="HISTÓRIA" data-fr="HISTOIRE">HISTÓRIA</h3>
           <p class="sobre__text"
@@ -209,7 +194,6 @@
              data-fr="Pour moi, demander une aide psychologique est un acte de courage. Mon objectif est que chaque personne comprenne mieux ce qu'elle ressent et ce qui la freine, et qu'elle trouve plus d'équilibre dans sa propre vie.">Para mim, pedir ajuda psicológica é um ato de coragem. O meu objetivo é que cada pessoa compreenda melhor o que sente e o que a bloqueia, e que encontre mais equilíbrio na sua própria vida.</p>
         </div>
 
-        <!-- FORMAÇÃO E ABORDAGEM — always visible -->
         <div class="sobre__historia">
           <h3 class="sobre__label" data-pt="FORMAÇÃO E ABORDAGEM" data-fr="FORMATION ET APPROCHE">FORMAÇÃO E ABORDAGEM</h3>
           <p class="sobre__text"
@@ -220,7 +204,7 @@
              data-fr="J'adapte mon travail à chaque personne, en tenant compte de son histoire et de son rythme. Plutôt que des réponses toutes faites, je cherche à aider chaque patient à construire ses propres ressources émotionnelles et à trouver le chemin qui lui correspond.">Adapto o trabalho a cada pessoa, tendo em conta a sua história e o seu ritmo. Em vez de respostas prontas, procuro ajudar cada paciente a construir os seus próprios recursos emocionais e a encontrar o caminho que faz sentido para si.</p>
         </div>
 
-        <!-- EXPERIÊNCIA — collapsed by default -->
+        <!-- collapsed by default; JS toggles .is-visible on click -->
         <div class="sobre__extra" id="sobre-extra" aria-hidden="true">
           <div class="sobre__historia">
             <h3 class="sobre__label" data-pt="EXPERIÊNCIA" data-fr="EXPÉRIENCE">EXPERIÊNCIA</h3>
@@ -237,9 +221,9 @@
                data-pt="📍 Consultas presenciais no Luxemburgo através da VADE Clinics · Acompanhamento online internacional"
                data-fr="📍 Consultations présentielles au Luxembourg via VADE Clinics · Accompagnement en ligne international">📍 Consultas presenciais no Luxemburgo através da VADE Clinics · Acompanhamento online internacional</p>
           </div>
-        </div><!-- /#sobre-extra -->
+        </div>
 
-        <!-- Toggle button — always last -->
+        <!-- must follow #sobre-extra in the DOM so the CSS .sobre__toggle-btn sibling selectors work -->
         <div class="sobre__toggle-wrap">
           <button class="section-btn sobre__toggle-btn"
                   id="sobre-toggle-btn"

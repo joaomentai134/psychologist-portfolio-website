@@ -7,21 +7,18 @@
   <title>Política de Privacidade — Tânia Ferreira | Psicóloga</title>
   <meta name="description" content="Política de Privacidade e tratamento de dados pessoais da Dra. Tânia Ferreira, Psicóloga Clínica, em conformidade com o RGPD." />
 
-  <!-- Favicon -->
   <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml" />
   <link rel="alternate icon" href="assets/images/favicon.ico" type="image/x-icon" />
 
-  <!-- Google Fonts -->
+  <!-- preconnect cuts the font load time by opening the TCP handshake early -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet" />
 
-  <!-- Stylesheet -->
   <link rel="stylesheet" href="assets/css/style.css" />
 
   <style>
-    /* ── Privacy Page Layout ── */
     .privacy-page {
       margin-top: var(--navbar-height);
       background-color: var(--color-bg);
@@ -34,7 +31,6 @@
       padding: 0 var(--space-xl);
     }
 
-    /* ── Page Header ── */
     .privacy-header {
       text-align: center;
       margin-bottom: 4rem;
@@ -78,7 +74,6 @@
       margin-top: 1.25rem;
     }
 
-    /* ── Back link ── */
     .privacy-back {
       display: inline-flex;
       align-items: center;
@@ -110,7 +105,6 @@
       transform: translateX(-3px);
     }
 
-    /* ── Section ── */
     .privacy-section {
       margin-bottom: 3rem;
     }
@@ -171,7 +165,6 @@
       color: var(--color-dark);
     }
 
-    /* ── Divider between sections ── */
     .privacy-rule {
       width: 100%;
       height: 1px;
@@ -190,7 +183,6 @@
   <header>
     <nav class="navbar" id="navbar" role="navigation" aria-label="Navegação principal">
 
-      <!-- Logo -->
       <a href="index.html" class="navbar__logo" aria-label="Tânia Ferreira Psicóloga — Página inicial">
         <img src="assets/images/Logo_Tania_PT.svg"
              id="navbar-logo-img"
@@ -200,7 +192,6 @@
              width="auto" />
       </a>
 
-      <!-- Desktop navigation -->
       <nav class="navbar__nav" aria-label="Links de navegação">
         <ul class="navbar__nav-list" role="list">
           <li class="navbar__nav-item">
@@ -241,7 +232,6 @@
           </li>
         </ul>
 
-        <!-- Language toggle -->
         <div class="navbar__lang" role="group" aria-label="Seleção de idioma">
           <button class="navbar__lang-btn is-active"
                   id="lang-pt-desktop"
@@ -255,7 +245,6 @@
         </div>
       </nav>
 
-      <!-- Mobile hamburger -->
       <button class="navbar__hamburger"
               id="hamburger-btn"
               aria-expanded="false"
@@ -268,7 +257,7 @@
 
     </nav>
 
-    <!-- Mobile dropdown nav -->
+    <!-- outside .navbar so it can drop below without being clipped by overflow:visible -->
     <div class="navbar__mobile-nav" id="mobile-nav" role="dialog" aria-modal="false" aria-label="Menu móvel">
       <ul class="navbar__mobile-nav-list" role="list">
         <li class="navbar__mobile-nav-item">
@@ -332,7 +321,6 @@
   <main class="privacy-page">
     <div class="privacy-container">
 
-      <!-- Back link -->
       <a href="index.html" class="privacy-back" aria-label="Voltar à página inicial">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <line x1="19" y1="12" x2="5" y2="12"></line>
@@ -341,7 +329,6 @@
         <span data-pt="PÁGINA INICIAL" data-fr="ACCUEIL">PÁGINA INICIAL</span>
       </a>
 
-      <!-- Page Header -->
       <header class="privacy-header">
         <span class="privacy-header__label"
               data-pt="INFORMAÇÃO LEGAL"
@@ -356,7 +343,6 @@
               data-fr="Dernière mise à jour : mai 2026">Última atualização: maio de 2026</span>
       </header>
 
-      <!-- ── Section 1 ── -->
       <section class="privacy-section" aria-labelledby="sec1-title">
         <span class="privacy-section__number"
               data-pt="01"
@@ -381,7 +367,6 @@
       </section>
       <hr class="privacy-rule" aria-hidden="true" />
 
-      <!-- ── Section 2 ── -->
       <section class="privacy-section" aria-labelledby="sec2-title">
         <span class="privacy-section__number"
               data-pt="02"
@@ -409,7 +394,6 @@
       </section>
       <hr class="privacy-rule" aria-hidden="true" />
 
-      <!-- ── Section 3 ── -->
       <section class="privacy-section" aria-labelledby="sec3-title">
         <span class="privacy-section__number"
               data-pt="03"
@@ -431,7 +415,6 @@
       </section>
       <hr class="privacy-rule" aria-hidden="true" />
 
-      <!-- ── Section 4 ── -->
       <section class="privacy-section" aria-labelledby="sec4-title">
         <span class="privacy-section__number"
               data-pt="04"
@@ -453,7 +436,6 @@
       </section>
       <hr class="privacy-rule" aria-hidden="true" />
 
-      <!-- ── Section 5 ── -->
       <section class="privacy-section" aria-labelledby="sec5-title">
         <span class="privacy-section__number"
               data-pt="05"
@@ -479,7 +461,6 @@
       </section>
       <hr class="privacy-rule" aria-hidden="true" />
 
-      <!-- ── Section 6 ── -->
       <section class="privacy-section" aria-labelledby="sec6-title">
         <span class="privacy-section__number"
               data-pt="06"
@@ -524,7 +505,6 @@
       </section>
       <hr class="privacy-rule" aria-hidden="true" />
 
-      <!-- ── Section 7 ── -->
       <section class="privacy-section" aria-labelledby="sec7-title">
         <span class="privacy-section__number"
               data-pt="07"
@@ -542,7 +522,6 @@
       </section>
       <hr class="privacy-rule" aria-hidden="true" />
 
-      <!-- ── Section 8 ── -->
       <section class="privacy-section" aria-labelledby="sec8-title">
         <span class="privacy-section__number"
               data-pt="08"
@@ -560,7 +539,6 @@
       </section>
       <hr class="privacy-rule" aria-hidden="true" />
 
-      <!-- ── Section 9 ── -->
       <section class="privacy-section" aria-labelledby="sec9-title">
         <span class="privacy-section__number"
               data-pt="09"
@@ -625,7 +603,9 @@
           data-fr="Contactez-moi dès maintenant!">Entre já em contacto!</span>
   </a>
 
-  <!-- Scripts -->
+  <!-- ================================================================
+       SCRIPTS
+       ================================================================ -->
   <script src="assets/js/main.js" defer></script>
 
 </body>

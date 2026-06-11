@@ -1,29 +1,26 @@
 /* ============================================================
-   TÂNIA FERREIRA — PSICÓLOGA CLÍNICA
-   style.css — CSS Foundation, Navbar, Hero
-   Mobile-first approach; min-width media queries
+   style.css — mobile-first, no preprocessor, no framework
+   Sections numbered to follow the page top-to-bottom flow.
    ============================================================ */
 
 /* ------------------------------------------------------------
    1. CUSTOM PROPERTIES
    ------------------------------------------------------------ */
 :root {
-  /* Color palette — Pantone approved */
+  /* Pantone-approved palette — do not change hex values without designer sign-off */
   --color-white:    #EEE5D3; /* Antique White — main background */
   --color-taupe:    #AEA393; /* Plaza Taupe — secondary / borders */
   --color-gray:     #82867E; /* Gray Lustre — muted text */
   --color-green:    #76B583; /* Absinthe Green — accent */
   --color-dark:     #39373B; /* Phantom — primary text / CTA */
-  --color-pure-white: #FFFFFF; /* Hero background */
-  --color-wine:     #7A2035; /* Bordeaux — CTA buttons (approved last-minute) */
-  --color-whatsapp: #25D366; /* WhatsApp green */
-  --color-bg:       #F9F7F6; /* Off-white page background */
+  --color-pure-white: #FFFFFF; /* hero overlay background */
+  --color-wine:     #7A2035; /* Bordeaux — CTA buttons */
+  --color-whatsapp: #25D366; /* WhatsApp brand green */
+  --color-bg:       #F9F7F6; /* off-white used for alternating section backgrounds */
 
-  /* Typography */
   --font-serif:      'Cormorant Garamond', Georgia, serif;
   --font-sans:       'Montserrat', Helvetica, Arial, sans-serif;
 
-  /* Spacing scale */
   --space-xs:  0.25rem;
   --space-sm:  0.5rem;
   --space-md:  1rem;
@@ -32,20 +29,16 @@
   --space-2xl: 3rem;
   --space-3xl: 4rem;
 
-  /* Navbar */
   --navbar-height:          95px;
   --navbar-height-scrolled: 72px;
 
-  /* Transitions */
   --transition-fast:   150ms ease;
   --transition-base:   250ms ease;
   --transition-slow:   400ms ease;
 
-  /* Border */
   --border-taupe: 1px solid var(--color-taupe);
   --border-radius-pill: 999px;
 
-  /* Shadows */
   --shadow-sm: 0 1px 4px rgba(57, 55, 59, 0.08);
   --shadow-md: 0 4px 16px rgba(57, 55, 59, 0.12);
 }
@@ -65,7 +58,7 @@ html {
   font-size: 16px;
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
-  /* Anchor links skip below the fixed navbar */
+  /* without this, anchor targets hide behind the fixed navbar */
   scroll-padding-top: var(--navbar-height);
 }
 
@@ -112,9 +105,8 @@ button {
 .text-dark   { color: var(--color-dark); }
 .text-upper  { text-transform: uppercase; letter-spacing: 0.12em; }
 
-/* Language switching is handled entirely by JS (textContent swap).
-   No CSS visibility rules needed for [data-pt] / [data-fr] elements
-   since every translatable element carries both attributes. */
+/* JS swaps textContent/placeholder on every [data-pt]/[data-fr] element directly.
+   .lang-fr is only needed for CSS-driven overrides like French font-size adjustments. */
 
 /* ------------------------------------------------------------
    4. NAVBAR
@@ -138,7 +130,7 @@ button {
     box-shadow var(--transition-base);
 }
 
-/* Frosted glass on scroll — height and logo stay the same */
+/* frosted glass on scroll; fixed height prevents layout shift when the effect kicks in */
 .navbar.scrolled {
   background-color: rgba(238, 229, 211, 0.50);
   backdrop-filter: blur(16px);
@@ -146,13 +138,12 @@ button {
   box-shadow: 0 4px 28px rgba(57, 55, 59, 0.18);
 }
 
-/* ---- Logo ---- */
 .navbar__logo {
   display: flex;
   align-items: center;
   flex-shrink: 0;
   text-decoration: none;
-  /* Logo centrado na navbar — overflow:visible deixa-o prolongar para baixo */
+  /* overflow:visible on the parent allows the logo image to extend below the navbar boundary */
 }
 
 .navbar__logo-img {
@@ -161,8 +152,6 @@ button {
   display: block;
   transition: height var(--transition-base);
 }
-
-/* Logo height unchanged on scroll */
 
 /* ---- Nav links (desktop) ---- */
 .navbar__nav {
@@ -222,7 +211,6 @@ button {
   font-weight: 700;
 }
 
-/* ---- Language toggle ---- */
 .navbar__lang {
   display: flex;
   align-items: center;
@@ -261,7 +249,7 @@ button {
   user-select: none;
 }
 
-/* ---- Nav divider dot (·) between links ---- */
+/* dot separator generated in CSS so the HTML doesn't need extra markup between nav items */
 .navbar__nav-item + .navbar__nav-item::before {
   content: '·';
   position: absolute;
@@ -273,12 +261,11 @@ button {
   pointer-events: none;
 }
 
-/* ---- Hamburger toggle (mobile) ---- */
 .navbar__hamburger {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 5.5px; /* maintains same visual bar spacing */
+  gap: 5.5px; /* keeps bar spacing even inside the larger 44px touch area */
   width: 44px;  /* min touch target */
   height: 44px; /* min touch target */
   margin-left: auto;
@@ -292,7 +279,7 @@ button {
 
 .navbar__hamburger-bar {
   display: block;
-  width: 24px; /* fixed visual width, not 100% of 44px button */
+  width: 24px; /* bars are 24px wide; full-width of the 44px button would look too heavy */
   height: 1.5px;
   background-color: var(--color-dark);
   border-radius: 2px;
@@ -300,7 +287,7 @@ button {
   transform-origin: center;
 }
 
-/* Hamburger → X animation */
+/* first and third bars rotate ±45° and the middle bar fades, forming an X */
 .navbar__hamburger[aria-expanded="true"] .navbar__hamburger-bar:nth-child(1) {
   transform: translateY(7.75px) rotate(45deg);
 }
@@ -312,7 +299,6 @@ button {
   transform: translateY(-7.75px) rotate(-45deg);
 }
 
-/* ---- Mobile dropdown nav ---- */
 .navbar__mobile-nav {
   display: none;
   position: fixed;
@@ -381,14 +367,14 @@ button {
 .hero {
   min-height: calc(100vh - var(--navbar-height));
   margin-top: var(--navbar-height);
-  background-color: var(--color-white); /* fallback */
+  background-color: var(--color-white); /* shown if the ::before background-image fails to load */
   display: flex;
-  align-items: flex-start; /* content anchored top-left */
+  align-items: flex-start;
   position: relative;
   overflow: hidden;
 }
 
-/* Photo layer — flipped horizontally */
+/* ::before holds the photo so it can be flipped with scaleX(-1) without mirroring the content layer */
 .hero::before {
   content: '';
   position: absolute;
@@ -401,16 +387,15 @@ button {
   z-index: 0;
 }
 
-/* No gradient overlay — photo shows fully */
+/* gradient overlay was removed; ::after kept as a no-op to preserve layer stacking context */
 .hero::after {
   display: none;
 }
 
 
 
-/* ---- Quote block ---- */
+/* mobile/tablet: frosted card floating above the photo, centered and above the scroll chevron */
 .hero__content {
-  /* Mobile/tablet: absolute card, centered, above scroll indicator */
   position: absolute;
   z-index: 2;
   display: flex;
@@ -418,15 +403,12 @@ button {
   align-items: center;
   text-align: center;
   gap: 0;
-  /* Mobile sizing — compact, full-width minus lateral margins */
   width: calc(100% - var(--space-xl) * 2);
   max-width: 300px;
   padding: var(--space-lg) var(--space-xl);
-  /* Position: lower-center, above scroll chevron */
   left: 50%;
-  bottom: calc(var(--space-xl) + 72px);
+  bottom: calc(var(--space-xl) + 72px); /* sits above the 72px scroll indicator */
   transform: translateX(-50%);
-  /* Card: 70% opacity cream with blur and rounded corners */
   background-color: rgba(238, 229, 211, 0.70);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -435,13 +417,13 @@ button {
 
 .hero__quote {
   font-family: var(--font-serif);
-  color: var(--color-dark); /* dark inside card; restored to taupe at 1280px+ */
+  color: var(--color-dark); /* dark against the cream card; reverts to taupe on desktop without card */
   line-height: 1.2;
   position: relative;
   margin-bottom: 0.25rem;
 }
 
-/* CTA button — smaller inside the card (mobile/tablet) */
+/* overrides the stand-alone .hero__cta size so it fits inside the quote card */
 .hero__content .hero__cta {
   font-size: 0.6rem;
   padding: 0.72em 1.8em;
@@ -449,7 +431,7 @@ button {
 
 .hero__quote-open {
   display: block;
-  font-size: 2.6rem; /* smaller on mobile; restored at 1024px */
+  font-size: 2.6rem; /* constrained on mobile; restored to full size at 1024px */
   line-height: 0.6;
   margin-bottom: 0.2rem;
   font-style: normal;
@@ -457,7 +439,7 @@ button {
   opacity: 0.5;
 }
 
-/* Mobile/tablet: each row is a block, lines inside flow inline */
+/* rows are block containers; each span inside flows inline — enables mid-line weight changes */
 .hero__quote-row {
   display: block;
   line-height: 1.25;
@@ -491,7 +473,7 @@ button {
   font-style: italic;
 }
 
-/* ---- French hero quote — text is ~30% longer, scale down ---- */
+/* French text is ~30% longer than Portuguese; scale down so it still fits the card */
 .lang-fr .hero__quote-line1,
 .lang-fr .hero__quote-line2,
 .lang-fr .hero__quote-line3,
@@ -501,7 +483,7 @@ button {
 
 .hero__quote-close {
   display: inline;
-  font-size: 2.6rem; /* smaller on mobile; restored at 1024px */
+  font-size: 2.6rem; /* constrained on mobile; restored at 1024px */
   line-height: 0;
   vertical-align: -0.35em;
   margin-left: 0.05em;
@@ -510,7 +492,6 @@ button {
   opacity: 0.5;
 }
 
-/* Attribution line below quote */
 .hero__quote-author {
   font-family: var(--font-sans);
   font-size: 0.65rem;
@@ -519,10 +500,9 @@ button {
   text-transform: uppercase;
   color: var(--color-dark);
   margin-top: 0.25rem;
-  margin-bottom: var(--space-md);  /* compact before CTA */
+  margin-bottom: var(--space-md);  /* keeps the CTA close — prevents the card from feeling too tall */
 }
 
-/* ---- CTA button ---- */
 .hero__cta {
   display: inline-flex;
   align-items: center;
@@ -559,7 +539,6 @@ button {
   transform: translateY(0);
 }
 
-/* ---- Scroll indicator ---- */
 .hero__scroll-indicator {
   position: absolute;
   bottom: var(--space-xl);
@@ -574,16 +553,14 @@ button {
   animation: scroll-bob 2s ease-in-out infinite;
 }
 
-/* No hover label on scroll indicator */
-
 .hero__scroll-indicator-text {
-  display: none; /* hidden — only chevron shows */
+  display: none; /* text hidden by design — only the animated chevron is shown */
 }
 
 .hero__scroll-chevron {
   width: 65px;
   height: 65px;
-  color: var(--color-white);   /* cream / antique white */
+  color: var(--color-white);
   opacity: 0.75;
   filter: drop-shadow(0 3px 10px rgba(57, 55, 59, 0.50));
   transition: opacity var(--transition-base);
@@ -609,8 +586,8 @@ button {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background-color: var(--color-white); /* cream — matches navbar */
-  color: var(--color-dark);             /* dark icon */
+  background-color: var(--color-white); /* matches the navbar at rest */
+  color: var(--color-dark);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -625,8 +602,8 @@ button {
 }
 
 .whatsapp-btn:hover {
-  background-color: var(--color-taupe); /* taupe on hover */
-  color: var(--color-pure-white);        /* white icon on hover */
+  background-color: var(--color-taupe);
+  color: var(--color-pure-white);
   transform: scale(1.08) translateY(-2px);
   box-shadow: 0 8px 24px rgba(57, 55, 59, 0.28);
 }
@@ -641,7 +618,6 @@ button {
   flex-shrink: 0;
 }
 
-/* Tooltip */
 .whatsapp-btn__tooltip {
   position: absolute;
   right: calc(100% + var(--space-sm));
@@ -666,7 +642,6 @@ button {
 
 /* ------------------------------------------------------------
    7. SECTION PLACEHOLDERS
-      (subsequent sections will replace these)
    ------------------------------------------------------------ */
 .section-placeholder {
   min-height: 100px;
@@ -703,7 +678,7 @@ button {
    8b. MOBILE ONLY — hero quote 3-line split (max-width: 767px)
    ------------------------------------------------------------ */
 @media (max-width: 767px) {
-  /* Row 1 splits into 2 lines; row 2 stays as one line */
+  /* line1 + line2 break into individual lines on small screens to prevent one very wide inline */
   .hero__quote-line1,
   .hero__quote-line2 {
     display: block;
@@ -732,7 +707,7 @@ button {
     padding: 0 var(--space-xl) 0 7px;
   }
 
-  /* Show desktop nav, hide hamburger — only from 1024px */
+  /* desktop nav revealed and hamburger hidden only from 1024px to avoid a cramped navbar at 768px */
   .navbar__nav {
     display: flex;
     gap: var(--space-lg);
@@ -746,7 +721,7 @@ button {
     gap: 0.85rem;
   }
 
-  /* 1024–1199px: still in card mode, just wider card + restore font sizes */
+  /* 1024–1199px: quote stays in card mode; just wider card and larger quote font */
   .hero__content {
     max-width: 580px;
     padding: var(--space-xl) var(--space-2xl);
@@ -788,7 +763,7 @@ button {
     -webkit-backdrop-filter: none;
   }
 
-  /* Desktop: rows become layout-transparent, each line is its own block */
+  /* display:contents makes rows layout-transparent so each line-span becomes its own block row */
   .hero__quote-row {
     display: contents;
   }
@@ -800,7 +775,7 @@ button {
     display: block;
   }
 
-  /* Restore taupe colours for desktop */
+  /* outside the frosted card, quote reverts to the lighter taupe colour palette */
   .hero__quote {
     color: var(--color-taupe);
   }
@@ -810,13 +785,13 @@ button {
     color: var(--color-taupe);
   }
 
-  /* Restore full-size CTA button */
+  /* card forced a smaller CTA; at desktop the full-size button sits outside the card */
   .hero__content .hero__cta {
     font-size: 0.7rem;
     padding: 0.85em 2.4em;
   }
 
-  /* Restore full desktop quote font sizes */
+  /* card constrained font size on mobile; unconstrained on wide desktop */
   .hero__quote-open,
   .hero__quote-close {
     font-size: 4rem;
@@ -841,7 +816,6 @@ button {
    11b. CAROUSEL SECTIONS — Serviços & Especialidades
    ------------------------------------------------------------ */
 
-/* SECTION SHARED */
 .section {
   padding: 5.5rem 0;
   background-color: var(--color-bg);
@@ -880,7 +854,6 @@ button {
   margin-bottom: 0.3em;
 }
 
-/* CAROUSEL CARD */
 .carousel-card {
   display: flex;
   flex-direction: column;
@@ -895,7 +868,7 @@ button {
 }
 
 .splide__slide.is-active .carousel-card {
-  background-color: var(--color-white); /* Antique White */
+  background-color: var(--color-white);
   box-shadow: var(--shadow-sm);
 }
 
@@ -930,7 +903,7 @@ button {
   text-align: justify;
 }
 
-/* ---- Carousel side padding — creates visible lateral margins ---- */
+/* side padding reserves space for the prev/next arrows so they don't overlap cards */
 .carousel {
   padding: 0 var(--space-2xl);
   position: relative;
@@ -949,11 +922,11 @@ button {
 
 /* Serviços / Especialidades arrows: active = #AEA393, disabled = #EEE5D3 */
 .carousel .splide__arrow {
-  color: var(--color-taupe); /* #AEA393 — active */
+  color: var(--color-taupe);
 }
 
 .carousel .splide__arrow[disabled] {
-  color: var(--color-white); /* #EEE5D3 — inactive */
+  color: var(--color-white);
 }
 
 .carousel .splide__arrow svg {
@@ -971,20 +944,19 @@ button {
 .carousel .splide__arrow--prev { left: var(--space-sm); }
 .carousel .splide__arrow--next { right: var(--space-sm); }
 
-/* ---- Feedback carousel — different arrow colours ---- */
+/* feedback section has a cream background, so dark arrows give better contrast than taupe */
 #feedback-carousel .splide__arrow {
-  color: var(--color-dark); /* #39373B — active */
+  color: var(--color-dark);
 }
 
 #feedback-carousel .splide__arrow[disabled] {
-  color: #D1D1D1; /* inactive */
+  color: #D1D1D1; /* lighter than taupe to signal disabled state */
 }
 
 #feedback-carousel .splide__arrow:hover:not([disabled]) {
   color: var(--color-taupe);
 }
 
-/* Section CTA button */
 .section__cta {
   display: flex;
   justify-content: center;
@@ -1016,7 +988,6 @@ button {
   transform: translateY(-1px);
 }
 
-/* Responsive padding for section header */
 @media (min-width: 768px) {
   .section__header { padding: 0 var(--space-2xl); }
 }
@@ -1123,7 +1094,7 @@ button {
   transition: background-color var(--transition-base), border-color var(--transition-base);
 }
 
-/* Central (active) card — solid fill */
+/* active slide gets a filled background so it visually pops from the flanking cards */
 .splide__slide.is-active .feedback-card {
   background-color: var(--color-bg);
   border-color: var(--color-bg);
@@ -1202,22 +1173,19 @@ button {
   text-align: justify;
 }
 
-/* Mobile: stack paragraphs */
 .sobre__text + .sobre__text {
   margin-top: var(--space-lg);
 }
 
-/* Spacing between blocks */
 .sobre__historia + .sobre__historia {
   margin-top: var(--space-xl);
 }
 
-/* Spacing above Experiência when it expands — clipped by overflow:hidden when collapsed */
+/* padding-top gives breathing room when the section expands; overflow:hidden clips it while closed */
 .sobre__extra .sobre__historia {
   padding-top: var(--space-xl);
 }
 
-/* ---- Expandable extra content ---- */
 .sobre__extra {
   max-height: 0;
   overflow: hidden;
@@ -1228,7 +1196,7 @@ button {
   max-height: 4000px;
 }
 
-/* ---- Toggle button text states ---- */
+/* aria-expanded drives the VER MAIS / VER MENOS swap — no extra JS state needed */
 .sobre__toggle-btn .toggle-less { display: none; }
 .sobre__toggle-btn[aria-expanded="true"] .toggle-more { display: none; }
 .sobre__toggle-btn[aria-expanded="true"] .toggle-less { display: inline; }
@@ -1262,9 +1230,7 @@ button {
   line-height: 1.6;
 }
 
-/* ---- Two-column layout on desktop ---- */
 @media (min-width: 768px) {
-  /* História and Formação sit side by side */
   .sobre__content {
     padding: 0 var(--space-2xl);
     display: grid;
@@ -1273,22 +1239,20 @@ button {
     align-items: start;
   }
 
-  /* Each block is just a column — paragraphs stack vertically */
   .sobre__historia {
     display: block;
   }
 
-  /* No extra top margin between the two side-by-side blocks */
+  /* resets the mobile stacking margin now that columns sit side by side */
   .sobre__historia + .sobre__historia {
     margin-top: 0;
   }
 
-  /* Paragraphs continue to stack with spacing */
   .sobre__text + .sobre__text {
     margin-top: var(--space-lg);
   }
 
-  /* Experiência (extra) and toggle span both columns — full width */
+  /* grid-column: 1/-1 spans both columns so Experiência and toggle are always full-width */
   .sobre__extra,
   .sobre__toggle-wrap {
     grid-column: 1 / -1;
@@ -1314,7 +1278,6 @@ button {
   min-height: 580px;
 }
 
-/* Flower pattern overlay */
 .cta-section__pattern {
   position: absolute;
   inset: 0;
@@ -1336,7 +1299,6 @@ button {
   gap: var(--space-xl);
 }
 
-/* Label — "PRÓXIMO PASSO" */
 .cta-section__label {
   font-family: var(--font-sans);
   font-size: 0.8rem;
@@ -1346,7 +1308,6 @@ button {
   color: var(--color-dark);
 }
 
-/* Serif italic headline — two lines */
 .cta-section__heading {
   font-family: var(--font-serif);
   font-weight: 400;
@@ -1361,7 +1322,7 @@ button {
 .cta-section__line1 {
   display: block;
   font-size: clamp(2.8rem, 6vw, 4.4rem);
-  color: var(--color-white); /* antique white / cream */
+  color: var(--color-white);
 }
 
 .cta-section__line2 {
@@ -1393,7 +1354,6 @@ button {
   filter: drop-shadow(0 3px 10px rgba(57, 55, 59, 0.50));
 }
 
-/* Body text */
 .cta-section__text {
   font-family: var(--font-sans);
   font-size: 0.925rem;

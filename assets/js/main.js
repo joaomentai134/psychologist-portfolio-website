@@ -1,38 +1,30 @@
 /* ============================================================
-   TÂNIA FERREIRA — PSICÓLOGA CLÍNICA
-   main.js — Hamburger menu, language toggle, navbar scroll
-   Vanilla JS, no dependencies
+   main.js — no framework, no build step
+   All behaviour is isolated in an IIFE to avoid global leaks.
    ============================================================ */
 
 (function () {
   'use strict';
 
-  /* ----------------------------------------------------------
-     CONSTANTS
-     ---------------------------------------------------------- */
   const SCROLL_THRESHOLD  = 50;          // px before navbar shrinks
-  const LANG_STORAGE_KEY  = 'tf_lang';   // localStorage key
+  const LANG_STORAGE_KEY  = 'tf_lang';
   const LANG_DEFAULT      = 'pt';
 
-  /* ----------------------------------------------------------
-     ELEMENT REFS
-     ---------------------------------------------------------- */
   const navbar        = document.getElementById('navbar');
   const logoImg       = document.getElementById('navbar-logo-img');
   const hamburgerBtn  = document.getElementById('hamburger-btn');
   const mobileNav     = document.getElementById('mobile-nav');
 
-  // All lang buttons (desktop + mobile share the same logic)
+  // both desktop and mobile buttons call the same applyLanguage handler
   const langBtnsPT    = document.querySelectorAll('#lang-pt-desktop, #lang-pt-mobile');
   const langBtnsFR    = document.querySelectorAll('#lang-fr-desktop, #lang-fr-mobile');
 
-  // All elements that carry translatable text via data attributes
   const translatableEls = document.querySelectorAll('[data-pt], [data-fr]');
 
   /* ----------------------------------------------------------
-     1. NAVBAR SCROLL BEHAVIOUR
-        Adds / removes .scrolled class on the navbar when the
-        page scrolls past SCROLL_THRESHOLD pixels.
+     1. NAVBAR SCROLL
+        .scrolled switches to frosted glass at SCROLL_THRESHOLD px
+        so the navbar doesn't visually compete with the hero.
      ---------------------------------------------------------- */
   function onScroll () {
     if (window.scrollY > SCROLL_THRESHOLD) {
@@ -42,19 +34,19 @@
     }
   }
 
-  // Passive listener — no need to call preventDefault
+  // passive: scroll handlers can't call preventDefault — marks them as safe to optimise
   window.addEventListener('scroll', onScroll, { passive: true });
 
-  // Run once on load in case the page is already scrolled
+  // run once on load in case the page is already scrolled (e.g. browser restores position)
   onScroll();
 
   /* ----------------------------------------------------------
-     2. HAMBURGER MENU TOGGLE
+     2. HAMBURGER MENU
      ---------------------------------------------------------- */
   function openMobileNav () {
     mobileNav.classList.add('is-open');
     hamburgerBtn.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden'; // prevent background scroll
+    document.body.style.overflow = 'hidden'; // stops the page scrolling behind the open menu
   }
 
   function closeMobileNav () {
@@ -75,12 +67,10 @@
   if (hamburgerBtn && mobileNav) {
     hamburgerBtn.addEventListener('click', toggleMobileNav);
 
-    // Close when a mobile nav link is clicked
     mobileNav.querySelectorAll('.navbar__mobile-nav-link').forEach(function (link) {
       link.addEventListener('click', closeMobileNav);
     });
 
-    // Close when clicking outside the nav area
     document.addEventListener('click', function (e) {
       if (
         mobileNav.classList.contains('is-open') &&
@@ -91,7 +81,6 @@
       }
     });
 
-    // Close on Escape key
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && mobileNav.classList.contains('is-open')) {
         closeMobileNav();
@@ -100,7 +89,7 @@
     });
   }
 
-  // Close mobile nav on resize to desktop breakpoint
+  // at desktop width the hamburger is hidden, so close before the layout switch to avoid a stale open state
   window.addEventListener('resize', function () {
     if (window.innerWidth >= 768 && mobileNav.classList.contains('is-open')) {
       closeMobileNav();
@@ -108,18 +97,17 @@
   }, { passive: true });
 
   /* ----------------------------------------------------------
-     3. LANGUAGE TOGGLE (PT / FR)
-        - Swaps visible text for all [data-pt] / [data-fr] els
-        - Toggles body class for CSS-driven display switching
-        - Persists choice in localStorage
+     3. LANGUAGE TOGGLE
+        text nodes and placeholders swap in-place; the SVG logo
+        switches to a separate file per language; the choice is
+        stored so the next page load starts in the right language.
      ---------------------------------------------------------- */
   function applyLanguage (lang) {
     const isFR = lang === 'fr';
 
-    // Toggle body class — CSS handles data-pt / data-fr visibility
+    // lang-fr drives CSS-only overrides, e.g. smaller font size for longer French text
     document.body.classList.toggle('lang-fr', isFR);
 
-    // Update text content of all translatable elements
     translatableEls.forEach(function (el) {
       const text = isFR ? el.dataset.fr : el.dataset.pt;
       if (text !== undefined) {
@@ -138,7 +126,6 @@
       }
     });
 
-    // Update aria-pressed on all lang buttons
     langBtnsPT.forEach(function (btn) {
       btn.setAttribute('aria-pressed', isFR ? 'false' : 'true');
       btn.classList.toggle('is-active', !isFR);
@@ -148,19 +135,17 @@
       btn.classList.toggle('is-active', isFR);
     });
 
-    // Update the <html lang> attribute for accessibility / SEO
+    // keeps screen readers and search engines in sync with the visible language
     document.documentElement.lang = isFR ? 'fr' : 'pt';
 
-    // Swap logo SVG for the language version
     if (logoImg) {
       logoImg.src = 'assets/images/Logo_Tania_' + (isFR ? 'FR' : 'PT') + '.svg';
     }
 
-    // Persist
     try {
       localStorage.setItem(LANG_STORAGE_KEY, lang);
     } catch (_) {
-      // localStorage may be unavailable in some contexts — fail silently
+      // localStorage is blocked in some privacy contexts — silently skip
     }
   }
 
@@ -176,23 +161,20 @@
     applyLanguage(savedLang);
   }
 
-  // Wire up PT buttons
   langBtnsPT.forEach(function (btn) {
     btn.addEventListener('click', function () { applyLanguage('pt'); });
   });
 
-  // Wire up FR buttons
   langBtnsFR.forEach(function (btn) {
     btn.addEventListener('click', function () { applyLanguage('fr'); });
   });
 
-  // Apply stored / default language on page load
   initLanguage();
 
   /* ----------------------------------------------------------
-     4. ACTIVE NAV LINK — highlight based on scroll position
-        Uses IntersectionObserver when available, otherwise
-        falls back to no highlighting beyond initial state.
+     4. ACTIVE NAV LINK
+        IntersectionObserver tracks visible sections; without it
+        the initial is-active class stays on the first link only.
      ---------------------------------------------------------- */
   (function initActiveNav () {
     var sections = document.querySelectorAll('main section[id]');
@@ -202,8 +184,6 @@
       '.navbar__nav-link, .navbar__mobile-nav-link'
     );
 
-    // sections that nav links point to via anchor on this page
-    // (after moving SOBRE MIM → #sobre and CONTATOS → #contatos, all use anchors)
     function setActive (id) {
       allNavLinks.forEach(function (link) {
         var href    = link.getAttribute('href');
@@ -217,8 +197,7 @@
       });
     }
 
-    // Track which sections are currently intersecting;
-    // always highlight the topmost one in document order.
+    // multiple sections can be intersecting at once — topmost one wins
     var intersecting = new Set();
 
     var observer = new IntersectionObserver(
@@ -231,7 +210,6 @@
           }
         });
 
-        // Pick the first (topmost) intersecting section
         var activeId = null;
         sections.forEach(function (section) {
           if (!activeId && intersecting.has(section.id)) {
@@ -255,8 +233,9 @@
   }());
 
   /* ----------------------------------------------------------
-     5. SCROLL INDICATOR CLICK — scroll suavemente para a
-        secção seguinte ao hero (#quote-transition)
+     5. SCROLL INDICATOR
+        clicking the chevron jumps past the hero so the
+        decorative indicator is also functional.
      ---------------------------------------------------------- */
   (function initScrollIndicator () {
     var indicator = document.querySelector('.hero__scroll-indicator');
@@ -269,11 +248,9 @@
   }());
 
   /* ----------------------------------------------------------
-     6. SOBRE MIM — EXPAND / COLLAPSE (about.html)
-        Toggles .sobre__extra visibility on button click.
-        Button text is handled via CSS (.toggle-more / .toggle-less)
-        and the aria-expanded attribute, so language toggle keeps
-        working without extra JS.
+     6. SOBRE MIM EXPAND / COLLAPSE
+        button text is driven by CSS via aria-expanded so the
+        language toggle keeps working without extra JS logic.
      ---------------------------------------------------------- */
   (function initSobreToggle () {
     var btn   = document.getElementById('sobre-toggle-btn');
@@ -291,7 +268,9 @@
   }());
 
   /* ----------------------------------------------------------
-     7. SPLIDE CAROUSELS — Serviços & Especialidades
+     7. SPLIDE CAROUSELS
+        Serviços and Especialidades share a config; Feedback
+        gets pagination dots so its shorter card count is clear.
      ---------------------------------------------------------- */
   (function initCarousels () {
     var carouselConfig = {

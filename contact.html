@@ -4,33 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Primary Meta Tags -->
   <title>Contactos — Tânia Ferreira | Psicóloga</title>
   <meta name="description"
         content="Entre em contacto com a Dra. Tânia Ferreira — Psicóloga Clínica. Marque a sua consulta por email, telefone ou WhatsApp." />
   <meta name="author" content="Tânia Ferreira" />
 
-  <!-- Open Graph / Social -->
   <meta property="og:type"        content="website" />
   <meta property="og:title"       content="Contactos — Dra. Tânia Ferreira | Psicóloga Clínica" />
   <meta property="og:description" content="Marque a sua consulta presencial ou online com a Dra. Tânia Ferreira." />
   <meta property="og:locale"      content="pt_PT" />
   <meta property="og:url"         content="https://www.taniapcferreira.com/contact.html" />
 
-  <!-- Favicon placeholder -->
   <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml" />
   <link rel="alternate icon" href="assets/images/favicon.ico" type="image/x-icon" />
 
-  <!-- Google Fonts: Cormorant Garamond + Montserrat -->
+  <!-- preconnect cuts the font load time by opening the TCP handshake early -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet" />
 
-  <!-- Splide CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" />
-
-  <!-- Stylesheet -->
   <link rel="stylesheet" href="assets/css/style.css" />
   <script defer src="/_vercel/insights/script.js"></script>
   <link rel="canonical" href="https://taniapcferreira.com/contact.html" />
@@ -44,7 +38,6 @@
   <header>
     <nav class="navbar" id="navbar" role="navigation" aria-label="Navegação principal">
 
-      <!-- Logo -->
       <a href="index.html#inicio" class="navbar__logo" aria-label="Tânia Ferreira Psicóloga — Página inicial">
         <img src="assets/images/Logo_Tania_PT.svg"
              id="navbar-logo-img"
@@ -54,7 +47,6 @@
              width="auto" />
       </a>
 
-      <!-- Desktop navigation -->
       <nav class="navbar__nav" aria-label="Links de navegação">
         <ul class="navbar__nav-list" role="list">
           <li class="navbar__nav-item">
@@ -96,7 +88,6 @@
           </li>
         </ul>
 
-        <!-- Language toggle -->
         <div class="navbar__lang" role="group" aria-label="Seleção de idioma">
           <button class="navbar__lang-btn is-active"
                   id="lang-pt-desktop"
@@ -110,7 +101,6 @@
         </div>
       </nav>
 
-      <!-- Mobile hamburger -->
       <button class="navbar__hamburger"
               id="hamburger-btn"
               aria-expanded="false"
@@ -121,9 +111,9 @@
         <span class="navbar__hamburger-bar"></span>
       </button>
 
-    </nav><!-- /.navbar -->
+    </nav>
 
-    <!-- Mobile dropdown nav -->
+    <!-- outside .navbar so it can drop below without being clipped by overflow:visible -->
     <div class="navbar__mobile-nav" id="mobile-nav" role="dialog" aria-modal="false" aria-label="Menu móvel">
       <ul class="navbar__mobile-nav-list" role="list">
         <li class="navbar__mobile-nav-item">
@@ -165,7 +155,6 @@
         </li>
       </ul>
 
-      <!-- Language toggle (mobile) -->
       <div class="navbar__mobile-lang navbar__lang"
            role="group"
            aria-label="Seleção de idioma">
@@ -179,7 +168,7 @@
                 aria-pressed="false"
                 title="Français">FR</button>
       </div>
-    </div><!-- /#mobile-nav -->
+    </div>
 
   </header>
 
@@ -188,9 +177,6 @@
        ================================================================ -->
   <main id="main-content" style="margin-top: var(--navbar-height); min-height: calc(100vh - var(--navbar-height));">
 
-    <!-- ============================================================
-         CONTATOS — MAIN PAGE CONTENT
-         ============================================================ -->
     <section class="section contatos-section" aria-label="Contactos">
       <div class="section__header">
         <h2 class="section__title" data-pt="CONTATOS" data-fr="CONTACTS">CONTATOS</h2>
@@ -277,6 +263,8 @@
             <textarea class="form-textarea"
                       name="message"
                       required
+                      data-pt="MENSAGEM"
+                      data-fr="MESSAGE"
                       placeholder="MENSAGEM"></textarea>
             <p class="form-note"
                data-pt="As suas informações são confidenciais."
